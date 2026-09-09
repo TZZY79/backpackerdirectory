@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backpacker Directory — Coming Soon</title>
+<meta name="description" content="Backpacker Directory — a community where travelers help each other earn, connect and explore while on the road. Launching soon.">
+<style>
+  :root{
+    --ink:#1c1408;
+    --paper:#faf3e6;
+    --accent:#c65d2e;
+    --accent2:#2e7d5b;
+    --line:#e4d5b7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Georgia', 'Times New Roman', serif;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(198,93,46,0.08), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(46,125,91,0.08), transparent 40%),
+      var(--paper);
+    color:var(--ink);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:6vh 6vw;
+    text-align:center;
+  }
+  .badge{
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:var(--accent2);
+    border:1px solid var(--accent2);
+    border-radius:999px;
+    padding:.5em 1.2em;
+    margin-bottom:2rem;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+  }
+  h1{
+    font-size:clamp(2.2rem, 6vw, 4.2rem);
+    margin:0 0 .4em 0;
+    line-height:1.05;
+  }
+  h1 span{color:var(--accent);}
+  p.lede{
+    max-width:640px;
+    font-size:1.15rem;
+    line-height:1.6;
+    color:#4a3c26;
+    margin:0 auto 2.4rem auto;
+  }
+  .divider{
+    width:64px;
+    height:2px;
+    background:var(--accent);
+    margin:2rem auto;
+  }
+  form{
+    display:flex;
+    gap:.6rem;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom:1.4rem;
+  }
+  input[type=email]{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    padding:.9em 1.1em;
+    border:1px solid var(--line);
+    border-radius:6px;
+    min-width:260px;
+    font-size:1rem;
+    background:#fff;
+    color:var(--ink);
+  }
+  button{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    padding:.9em 1.6em;
+    border:none;
+    border-radius:6px;
+    background:var(--accent);
+    color:#fff;
+    font-size:1rem;
+    cursor:pointer;
+    transition:background .2s ease;
+  }
+  button:hover{background:#a94c22;}
+  .note{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:.85rem;
+    color:#8a7a58;
+    max-width:420px;
+  }
+  .links{
+    margin-top:3rem;
+    display:flex;
+    gap:1.6rem;
+    flex-wrap:wrap;
+    justify-content:center;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:.9rem;
+  }
+  .links a{
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--accent2);
+    padding-bottom:2px;
+  }
+  .links a:hover{color:var(--accent2);}
+  footer{
+    margin-top:4rem;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:.78rem;
+    color:#9a8c6c;
+  }
+  .compass{
+    width:46px;height:46px;margin-bottom:1.4rem;opacity:.85;
+  }
+</style>
+</head>
+<body>
+
+  <svg class="compass" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="28" stroke="#c65d2e" stroke-width="2"/>
+    <path d="M32 12 L38 32 L32 52 L26 32 Z" fill="#c65d2e"/>
+    <circle cx="32" cy="32" r="3" fill="#1c1408"/>
+  </svg>
+
+  <div class="badge">Launching Soon</div>
+
+  <h1>Backpacker <span>Directory</span></h1>
+
+  <p class="lede">
+    A community-built home for people who travel differently — where backpackers
+    help each other find work, share real routes, and earn a living while they're
+    out exploring. Built by someone who's been on the road for years, for people
+    doing the same.
+  </p>
+
+  <div class="divider"></div>
+
+  <form onsubmit="return false;">
+    <input type="email" placeholder="your@email.com" required>
+    <button type="submit">Notify me at launch</button>
+  </form>
+  <p class="note">No spam — just one email when the directory opens its doors.</p>
+
+  <div class="links">
+    <a href="https://www.youtube.com/@TTTT-BCN" target="_blank" rel="noopener">Follow the journey on YouTube</a>
+    <a href="https://naturalstylebarcelona.xyz" target="_blank" rel="noopener">Natural Style Barcelona</a>
+  </div>
+
+  <footer>&copy; 2026 Backpacker Directory</footer>
+
+</body>
+</html>
