@@ -120,6 +120,88 @@
   .compass{
     width:46px;height:46px;margin-bottom:1.4rem;opacity:.85;
   }
+
+  /* --- Floating YouTube playlist widget --- */
+  .yt-float-wrap{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:300px;
+    z-index:9999;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    text-align:left;
+    transition:width .2s ease;
+  }
+  .yt-float-wrap.collapsed{
+    width:180px;
+  }
+  .yt-float-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(28,20,8,0.28);
+  }
+  .yt-float-titlebar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:.5rem;
+    padding:.5em .7em;
+    background:var(--ink);
+    color:#fff;
+  }
+  .yt-float-titlebar span{
+    font-size:.75rem;
+    letter-spacing:.04em;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .yt-float-titlebar button{
+    all:unset;
+    cursor:pointer;
+    font-size:.8rem;
+    color:#fff;
+    padding:.1em .4em;
+    border-radius:4px;
+  }
+  .yt-float-titlebar button:hover{background:rgba(255,255,255,0.15);}
+  .yt-player-inner{
+    position:relative;
+    width:100%;
+    padding-top:56.25%; /* 16:9 */
+    background:#000;
+  }
+  .yt-float-wrap.collapsed .yt-player-inner,
+  .yt-float-wrap.collapsed .yt-unmute-btn{
+    display:none;
+  }
+  .yt-player-inner iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+  .yt-unmute-btn{
+    position:absolute;
+    bottom:8px;
+    right:8px;
+    z-index:5;
+    font-size:.72rem;
+    padding:.4em .9em;
+    border:none;
+    border-radius:999px;
+    background:rgba(28,20,8,0.72);
+    color:#fff;
+    cursor:pointer;
+  }
+  .yt-unmute-btn:hover{background:rgba(28,20,8,0.9);}
+  @media (max-width:480px){
+    .yt-float-wrap{ width:44vw; right:12px; bottom:12px; }
+    .yt-float-wrap.collapsed{ width:150px; }
+  }
 </style>
 </head>
 <body>
@@ -155,6 +237,61 @@
   </div>
 
   <footer>&copy; 2026 Backpacker Directory</footer>
+
+  <div class="yt-float-wrap" id="ytWrap">
+    <div class="yt-float-card">
+      <div class="yt-float-titlebar">
+        <span>▶ Now playing — the journey</span>
+        <button type="button" id="ytCollapseBtn" aria-label="Minimize player">–</button>
+      </div>
+      <div class="yt-player-inner">
+        <iframe
+          id="ytPlayer"
+          src="https://www.youtube.com/embed/videoseries?list=PLKxHYwa7Ft84Wxb4nGzDdn8m1zOCFQR-y&autoplay=1&mute=1&loop=1&playsinline=1&enablejsapi=1&rel=0&modestbranding=1"
+          title="Backpacker Directory — YouTube playlist"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+        <button type="button" class="yt-unmute-btn" id="ytUnmuteBtn" aria-label="Unmute video">🔊 Unmute</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var iframe = document.getElementById('ytPlayer');
+    var unmuteBtn = document.getElementById('ytUnmuteBtn');
+    var collapseBtn = document.getElementById('ytCollapseBtn');
+    var wrap = document.getElementById('ytWrap');
+    var muted = true;
+    var collapsed = false;
+
+    function sendCommand(func, args){
+      if(!iframe || !iframe.contentWindow) return;
+      iframe.contentWindow.postMessage(JSON.stringify({event:'command', func:func, args: args || []}), '*');
+    }
+
+    unmuteBtn.addEventListener('click', function(){
+      if(muted){
+        sendCommand('unMute');
+        sendCommand('setVolume', [100]);
+        unmuteBtn.textContent = '🔇 Mute';
+        muted = false;
+      } else {
+        sendCommand('mute');
+        unmuteBtn.textContent = '🔊 Unmute';
+        muted = true;
+      }
+    });
+
+    collapseBtn.addEventListener('click', function(){
+      collapsed = !collapsed;
+      wrap.classList.toggle('collapsed', collapsed);
+      collapseBtn.textContent = collapsed ? '+' : '–';
+      collapseBtn.setAttribute('aria-label', collapsed ? 'Expand player' : 'Minimize player');
+    });
+  })();
+  </script>
 
 </body>
 </html>
