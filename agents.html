@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become an Agent — Backpacker Directory</title>
+<meta name="description" content="Earn from the road as a Backpacker Directory Agent. No experience needed — free training, a starter guide, and flexible pay through crypto or other methods.">
+<style>
+:root{
+--ink:#1c1408;
+--paper:#faf3e6;
+--accent:#c65d2e;
+--accent2:#2e7d5b;
+--line:#e4d5b7;
+--card:#ffffff;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+font-family:'Georgia', 'Times New Roman', serif;
+background:
+radial-gradient(circle at 20% 0%, rgba(198,93,46,0.07), transparent 40%),
+radial-gradient(circle at 90% 30%, rgba(46,125,91,0.07), transparent 40%),
+var(--paper);
+color:var(--ink);
+}
+a{color:inherit;}
+.wrap{max-width:920px;margin:0 auto;padding:0 6vw;}
+
+/* Top nav */
+nav.top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:1.4rem 6vw;
+border-bottom:1px solid var(--line);
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+nav.top .brand{
+display:flex;
+align-items:center;
+gap:.6rem;
+text-decoration:none;
+font-family:'Georgia', serif;
+font-weight:bold;
+font-size:1.05rem;
+color:var(--ink);
+}
+nav.top .brand svg{width:26px;height:26px;}
+nav.top .brand span{color:var(--accent);}
+nav.top a.back{
+font-size:.85rem;
+text-decoration:none;
+color:var(--ink);
+border-bottom:1px solid var(--accent2);
+padding-bottom:2px;
+}
+
+/* Hero */
+.hero{
+text-align:center;
+padding:5rem 6vw 3.5rem 6vw;
+}
+.badge{
+display:inline-block;
+letter-spacing:.3em;
+text-transform:uppercase;
+font-size:.72rem;
+color:var(--accent2);
+border:1px solid var(--accent2);
+border-radius:999px;
+padding:.5em 1.2em;
+margin-bottom:1.8rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+h1{
+font-size:clamp(2rem, 5.5vw, 3.6rem);
+margin:0 0 .5em 0;
+line-height:1.08;
+}
+h1 span{color:var(--accent);}
+.hero p.lede{
+max-width:620px;
+margin:0 auto 2.2rem auto;
+font-size:1.15rem;
+line-height:1.65;
+color:#4a3c26;
+}
+.cta-row{
+display:flex;
+gap:.9rem;
+justify-content:center;
+flex-wrap:wrap;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn{
+display:inline-block;
+padding:.9em 1.7em;
+border-radius:6px;
+font-size:1rem;
+text-decoration:none;
+cursor:pointer;
+border:none;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:#a94c22;}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--line);}
+.btn-outline:hover{border-color:var(--accent2);color:var(--accent2);}
+
+/* Section shell */
+section{padding:4rem 6vw;border-top:1px solid var(--line);}
+section.tinted{background:rgba(198,93,46,0.05);}
+.section-inner{max-width:920px;margin:0 auto;}
+.kicker{
+font-family:'Helvetica Neue', Arial, sans-serif;
+text-transform:uppercase;
+letter-spacing:.18em;
+font-size:.72rem;
+color:var(--accent2);
+margin-bottom:.8rem;
+}
+h2{
+font-size:clamp(1.6rem, 3.4vw, 2.3rem);
+margin:0 0 1rem 0;
+}
+p.intro{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:1.02rem;
+line-height:1.7;
+color:#4a3c26;
+max-width:680px;
+margin:0 0 2rem 0;
+}
+
+/* Why join grid */
+.grid{
+display:grid;
+grid-template-columns:repeat(2, 1fr);
+gap:1.4rem;
+}
+@media (max-width:680px){.grid{grid-template-columns:1fr;}}
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:12px;
+padding:1.6rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.card h3{
+font-family:'Georgia', serif;
+font-size:1.15rem;
+margin:0 0 .5rem 0;
+color:var(--accent);
+}
+.card p{
+font-size:.95rem;
+line-height:1.6;
+color:#4a3c26;
+margin:0;
+}
+
+/* Steps */
+.steps{
+counter-reset:step;
+display:flex;
+flex-direction:column;
+gap:1.4rem;
+}
+.step{
+display:flex;
+gap:1.2rem;
+align-items:flex-start;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.step .num{
+counter-increment:step;
+flex-shrink:0;
+width:2.4rem;
+height:2.4rem;
+border-radius:50%;
+background:var(--ink);
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.05rem;
+font-family:'Georgia', serif;
+}
+.step .num::before{content:counter(step);}
+.step h3{
+font-family:'Georgia', serif;
+margin:0 0 .3rem 0;
+font-size:1.1rem;
+}
+.step p{
+margin:0;
+font-size:.95rem;
+line-height:1.6;
+color:#4a3c26;
+}
+
+/* Starter guide accordion-ish cards */
+.guide-list{
+display:flex;
+flex-direction:column;
+gap:1rem;
+}
+details.guide{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:10px;
+padding:1rem 1.3rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+details.guide summary{
+cursor:pointer;
+font-family:'Georgia', serif;
+font-size:1.08rem;
+color:var(--ink);
+list-style:none;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+details.guide summary::-webkit-details-marker{display:none;}
+details.guide summary::after{
+content:'+';
+font-size:1.3rem;
+color:var(--accent);
+margin-left:1rem;
+}
+details.guide[open] summary::after{content:'–';}
+details.guide .body{
+margin-top:.9rem;
+font-size:.95rem;
+line-height:1.65;
+color:#4a3c26;
+}
+details.guide ul{margin:.4rem 0 0 0;padding-left:1.2rem;}
+details.guide li{margin-bottom:.4rem;}
+.script-box{
+background:var(--paper);
+border-left:3px solid var(--accent2);
+padding:.9rem 1.1rem;
+border-radius:0 8px 8px 0;
+font-style:italic;
+margin-top:.6rem;
+}
+
+/* Pack callout */
+.pack-callout{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:1.5rem;
+flex-wrap:wrap;
+background:var(--ink);
+color:#f5ead4;
+border-radius:14px;
+padding:2rem 2.2rem;
+margin-top:2.2rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.pack-callout h3{
+font-family:'Georgia', serif;
+margin:0 0 .4rem 0;
+font-size:1.3rem;
+color:#fff;
+}
+.pack-callout p{margin:0;font-size:.92rem;line-height:1.6;color:#e6d8b8;max-width:460px;}
+.pack-callout .btn-primary{white-space:nowrap;}
+
+/* FAQ */
+details.faq{
+border-bottom:1px solid var(--line);
+padding:1.1rem 0;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+details.faq summary{
+cursor:pointer;
+font-size:1rem;
+font-weight:bold;
+list-style:none;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+details.faq summary::-webkit-details-marker{display:none;}
+details.faq summary::after{content:'+';color:var(--accent);font-size:1.2rem;margin-left:1rem;}
+details.faq[open] summary::after{content:'–';}
+details.faq p{
+margin:.7rem 0 0 0;
+font-size:.95rem;
+line-height:1.65;
+color:#4a3c26;
+}
+
+/* Sign up */
+.signup{
+text-align:center;
+}
+form.apply{
+display:flex;
+gap:.6rem;
+flex-wrap:wrap;
+justify-content:center;
+margin:0 auto 1rem auto;
+max-width:520px;
+}
+form.apply input{
+font-family:'Helvetica Neue', Arial, sans-serif;
+padding:.9em 1.1em;
+border:1px solid var(--line);
+border-radius:6px;
+min-width:240px;
+flex:1;
+font-size:1rem;
+background:#fff;
+color:var(--ink);
+}
+.note{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.85rem;
+color:#8a7a58;
+max-width:460px;
+margin:0 auto;
+}
+
+footer{
+text-align:center;
+padding:3rem 6vw;
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.78rem;
+color:#9a8c6c;
+border-top:1px solid var(--line);
+}
+footer a{color:#9a8c6c;}
+</style>
+</head>
+<body>
+
+<nav class="top">
+<a class="brand" href="index.html">
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="28" stroke="#c65d2e" stroke-width="2"/>
+<path d="M32 12 L38 32 L32 52 L26 32 Z" fill="#c65d2e"/>
+<circle cx="32" cy="32" r="3" fill="#1c1408"/>
+</svg>
+Backpacker <span>Directory</span>
+</a>
+<a class="back" href="index.html">&larr; Back to home</a>
+</nav>
+
+<header class="hero">
+<div class="badge">Agent Programme</div>
+<h1>Turn Your Travels Into <span>Income</span></h1>
+<p class="lede">
+You already talk to backpackers, hang out in hostels, and know which spots are
+actually worth it. Backpacker Directory pays you for sharing that — no
+experience needed, no desk, no boss. We'll train you from zero.
+</p>
+<div class="cta-row">
+<a class="btn btn-primary" href="#signup">Apply to Become an Agent</a>
+<a class="btn btn-outline" href="#how-it-works">See How It Works</a>
+</div>
+</header>
+
+<section id="why">
+<div class="section-inner">
+<div class="kicker">Why Join</div>
+<h2>Why A Backpacker Would Work With Us</h2>
+<p class="intro">
+This isn't a call centre job. It's a way to get paid for the conversations
+and connections you're already having on the road.
+</p>
+<div class="grid">
+<div class="card">
+<h3>Earn From The Road</h3>
+<p>Get paid for connecting travelers with businesses you already trust — cafes, hostels, tours, shops. No fixed hours, no office, no boss.</p>
+</div>
+<div class="card">
+<h3>Zero Experience? Good.</h3>
+<p>We built this for people who've never done anything like it before. If you're willing to give it a go, we'll show you exactly how, step by step.</p>
+</div>
+<div class="card">
+<h3>Be Part Of Something Growing</h3>
+<p>You're not just an agent — you're one of the first. Help build a community that makes independent travel easier for everyone who comes after you.</p>
+</div>
+<div class="card">
+<h3>Keep Doing What You Love</h3>
+<p>Travel, explore, meet people — that's the job. The income is what happens while you're doing what you'd be doing anyway.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="tinted" id="how-it-works">
+<div class="section-inner">
+<div class="kicker">How It Works</div>
+<h2>Five Simple Steps</h2>
+<div class="steps">
+<div class="step">
+<div class="num"></div>
+<div>
+<h3>Sign Up</h3>
+<p>Tell us a little about where you are and how you like to travel. Takes two minutes.</p>
+</div>
+</div>
+<div class="step">
+<div class="num"></div>
+<div>
+<h3>Complete Free Training</h3>
+<p>A short, simple online course walks you through everything — how referrals work, how to talk to businesses, and how you get paid. Never done anything like this? Perfect — that's exactly who it's built for.</p>
+</div>
+</div>
+<div class="step">
+<div class="num"></div>
+<div>
+<h3>Get Your Starter Pack</h3>
+<p>A downloadable guide with scripts, tips, and a step-by-step plan so you always know what to say and do — see the full preview below.</p>
+</div>
+</div>
+<div class="step">
+<div class="num"></div>
+<div>
+<h3>Connect &amp; Refer</h3>
+<p>Recommend Backpacker Directory to businesses and travelers you genuinely think would benefit — cafes, hostels, tour operators, anyone travelers rely on.</p>
+</div>
+</div>
+<div class="step">
+<div class="num"></div>
+<div>
+<h3>Get Paid</h3>
+<p>Earn for every successful connection. Payment options include crypto and other methods, confirmed when you join.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="training">
+<div class="section-inner">
+<div class="kicker">Training</div>
+<h2>Never Done This Before? Good — We'll Train You.</h2>
+<p class="intro">
+You don't need sales experience, a business background, or any special
+skills to start. Our free online training walks you through the whole
+process from scratch — how to introduce Backpacker Directory, how to talk
+to business owners with confidence, and how to know you're doing it right.
+If you're willing to try, we'll get you ready. That's the whole deal.
+</p>
+</div>
+</section>
+
+<section class="tinted" id="starter-guide">
+<div class="section-inner">
+<div class="kicker">Starter Guide</div>
+<h2>Your Agent Starter Guide</h2>
+<p class="intro">
+Everything below goes into your downloadable Starter Pack — keep it on your
+phone and use it any time you're not sure what to say or do.
+</p>
+
+<div class="guide-list">
+
+<details class="guide" open>
+<summary>What To Say</summary>
+<div class="body">
+Keep it simple, honest, and short. You're not selling anything — you're
+introducing something useful.
+<div class="script-box">
+"Hey, I'm part of Backpacker Directory — we connect travelers with places
+like yours that are actually worth recommending. Would you be open to
+being featured? Takes two minutes and costs nothing to find out more."
+</div>
+Adjust it to sound like you — the goal is a real conversation, not a script
+read word for word.
+</div>
+</details>
+
+<details class="guide">
+<summary>Choosing The Right Businesses</summary>
+<div class="body">
+Not every business is a fit. Look for ones you'd genuinely recommend to a
+friend:
+<ul>
+<li>Places that already get backpacker or traveler customers, or clearly want more</li>
+<li>Good reviews and a decent reputation locally</li>
+<li>A vibe that fits independent travelers — friendly, easy to find, fair prices</li>
+<li>Somewhere you'd actually go yourself</li>
+</ul>
+If you wouldn't recommend it to another traveler, don't refer it.
+</div>
+</details>
+
+<details class="guide">
+<summary>How To Be Professional</summary>
+<div class="body">
+<ul>
+<li>Be upfront about who you are and what Backpacker Directory is</li>
+<li>Don't oversell or promise things you're not sure about</li>
+<li>Respect the business owner's time — keep the first chat short</li>
+<li>Follow up politely once, not repeatedly</li>
+<li>Say thank you, whatever the answer is</li>
+</ul>
+</div>
+</details>
+
+<details class="guide">
+<summary>Good Questions To Ask</summary>
+<div class="body">
+<ul>
+<li>"Do you get many backpacker or independent traveler customers already?"</li>
+<li>"Would more traveler foot traffic be useful for your business?"</li>
+<li>"Is there a best time to reach you if you want to hear more?"</li>
+<li>"Is there anything about your business travelers should know that isn't obvious?"</li>
+</ul>
+</div>
+</details>
+
+<details class="guide">
+<summary>What Not To Do</summary>
+<div class="body">
+<ul>
+<li>Don't pressure anyone — a "no" is a normal answer, move on</li>
+<li>Don't misrepresent Backpacker Directory or guarantee results</li>
+<li>Don't spam the same business or person more than once</li>
+<li>Don't share false information to close a conversation faster</li>
+<li>Don't take payment or personal details from a business directly — that's handled through us</li>
+</ul>
+</div>
+</details>
+
+</div>
+
+<div class="pack-callout">
+<div>
+<h3>Full Starter Pack — Coming As A Download</h3>
+<p>A printable PDF version of everything above, plus extra templates, is the
+next thing we're building. For now, everything you need is right here on
+this page.</p>
+</div>
+<a class="btn btn-primary" href="#signup">Get Notified</a>
+</div>
+
+</div>
+</section>
+
+<section id="payments">
+<div class="section-inner">
+<div class="kicker">Payments</div>
+<h2>How You Get Paid</h2>
+<p class="intro">
+Agents are paid for successful referrals — when a business or traveler you
+connect becomes part of Backpacker Directory. Payment will be available
+through crypto and other methods, with full details confirmed as part of
+your onboarding training. We'll always tell you exactly what you're
+earning and when to expect it — no guessing games.
+</p>
+</div>
+</section>
+
+<section class="tinted" id="faq">
+<div class="section-inner">
+<div class="kicker">FAQ</div>
+<h2>Questions, Answered</h2>
+
+<details class="faq" open>
+<summary>Do I need any experience?</summary>
+<p>No. This programme is built for people who've never done anything like it — the free training covers everything from scratch.</p>
+</details>
+
+<details class="faq">
+<summary>Do I need to pay anything to join?</summary>
+<p>No. Becoming an Agent is free — you're not buying in, you're joining.</p>
+</details>
+
+<details class="faq">
+<summary>How much can I earn?</summary>
+<p>It depends on how active you are and how many businesses and travelers you connect. Specific rates are shared during onboarding.</p>
+</details>
+
+<details class="faq">
+<summary>How do I actually get paid?</summary>
+<p>Through crypto or other payment methods, confirmed when you sign up and covered in more detail during training.</p>
+</details>
+
+<details class="faq">
+<summary>Can I do this while I'm travelling?</summary>
+<p>Yes — it's built for people on the move. All you need is your phone and a willingness to talk to people.</p>
+</details>
+
+<details class="faq">
+<summary>What if I can't find a business to refer?</summary>
+<p>Your Starter Guide above gives you simple ways to find and approach the right businesses, and training covers this in more detail.</p>
+</details>
+
+<details class="faq">
+<summary>Is this legit?</summary>
+<p>Backpacker Directory is a real, growing community project — not a get-rich-quick scheme. We're upfront about how it works, every step of the way.</p>
+</details>
+
+</div>
+</section>
+
+<section id="signup">
+<div class="section-inner signup">
+<div class="kicker">Get Started</div>
+<h2>Ready To Start?</h2>
+<p class="intro" style="margin-left:auto;margin-right:auto;text-align:center;">
+Leave your email and we'll send you the free training and Starter Pack the
+moment Agent sign-ups open.
+</p>
+<form class="apply" onsubmit="return false;">
+<input type="email" placeholder="your@email.com" required>
+<button type="submit" class="btn btn-primary">Apply to Become an Agent</button>
+</form>
+<p class="note">No spam — just what you need to get started, when it's ready.</p>
+</div>
+</section>
+
+<footer>
+&copy; 2026 Backpacker Directory · <a href="index.html">Home</a>
+</footer>
+
+</body>
+</html>
