@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post an Event — Backpacker Directory</title>
+<meta name="description" content="Post a meetup, tour, language exchange or any traveler-friendly event to Backpacker Directory — a global events board built by travelers, for travelers, anywhere in the world.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23faf3e6' stroke='%23c65d2e' stroke-width='4'/%3E%3Cpath d='M32 12 L38 32 L32 52 L26 32 Z' fill='%23c65d2e'/%3E%3Ccircle cx='32' cy='32' r='3' fill='%231c1408'/%3E%3C/svg%3E">
+<style>
+:root{
+--ink:#1c1408;
+--paper:#faf3e6;
+--accent:#c65d2e;
+--accent2:#2e7d5b;
+--line:#e4d5b7;
+--card:#ffffff;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+font-family:'Georgia', 'Times New Roman', serif;
+background:
+radial-gradient(circle at 20% 0%, rgba(198,93,46,0.07), transparent 40%),
+radial-gradient(circle at 90% 30%, rgba(46,125,91,0.07), transparent 40%),
+var(--paper);
+color:var(--ink);
+}
+a{color:inherit;}
+.wrap{max-width:920px;margin:0 auto;padding:0 6vw;}
+
+/* Top nav */
+nav.top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:1.4rem 6vw;
+border-bottom:1px solid var(--line);
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+nav.top .brand{
+display:flex;
+align-items:center;
+gap:.6rem;
+text-decoration:none;
+font-family:'Georgia', serif;
+font-weight:bold;
+font-size:1.05rem;
+color:var(--ink);
+}
+nav.top .brand svg{width:26px;height:26px;}
+nav.top .brand span{color:var(--accent);}
+nav.top .nav-links{
+display:flex;
+align-items:center;
+gap:1.4rem;
+}
+nav.top a.back{
+font-size:.85rem;
+text-decoration:none;
+color:var(--ink);
+border-bottom:1px solid var(--accent2);
+padding-bottom:2px;
+}
+
+/* Hero */
+.hero{
+text-align:center;
+padding:5rem 6vw 3.5rem 6vw;
+}
+.badge{
+display:inline-block;
+letter-spacing:.3em;
+text-transform:uppercase;
+font-size:.72rem;
+color:var(--accent2);
+border:1px solid var(--accent2);
+border-radius:999px;
+padding:.5em 1.2em;
+margin-bottom:1.8rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+h1{
+font-size:clamp(2rem, 5.5vw, 3.6rem);
+margin:0 0 .5em 0;
+line-height:1.08;
+}
+h1 span{color:var(--accent);}
+.hero p.lede{
+max-width:640px;
+margin:0 auto 2.2rem auto;
+font-size:1.15rem;
+line-height:1.65;
+color:#4a3c26;
+}
+.cta-row{
+display:flex;
+gap:.9rem;
+justify-content:center;
+flex-wrap:wrap;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn{
+display:inline-block;
+padding:.9em 1.7em;
+border-radius:6px;
+font-size:1rem;
+text-decoration:none;
+cursor:pointer;
+border:none;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:#a94c22;}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--line);}
+.btn-outline:hover{border-color:var(--accent2);color:var(--accent2);}
+.btn-small{
+display:inline-block;
+padding:.55em 1em;
+border-radius:6px;
+font-size:.82rem;
+text-decoration:none;
+border:1px solid var(--accent2);
+color:var(--accent2);
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn-small:hover{background:var(--accent2);color:#fff;}
+
+/* Section shell */
+section{padding:4rem 6vw;border-top:1px solid var(--line);}
+section.tinted{background:rgba(198,93,46,0.05);}
+.section-inner{max-width:920px;margin:0 auto;}
+.kicker{
+font-family:'Helvetica Neue', Arial, sans-serif;
+text-transform:uppercase;
+letter-spacing:.18em;
+font-size:.72rem;
+color:var(--accent2);
+margin-bottom:.8rem;
+}
+h2{
+font-size:clamp(1.6rem, 3.4vw, 2.3rem);
+margin:0 0 1rem 0;
+}
+p.intro{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:1.02rem;
+line-height:1.7;
+color:#4a3c26;
+max-width:680px;
+margin:0 0 2rem 0;
+}
+
+/* Global strip */
+.global-strip{
+display:flex;
+align-items:center;
+gap:1rem;
+flex-wrap:wrap;
+justify-content:center;
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.85rem;
+letter-spacing:.04em;
+color:var(--accent2);
+text-transform:uppercase;
+margin-top:.4rem;
+}
+.global-strip span{
+border:1px solid var(--line);
+border-radius:999px;
+padding:.4em 1em;
+}
+
+/* Event type grid */
+.grid{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:1rem;
+}
+@media (max-width:720px){.grid{grid-template-columns:repeat(2, 1fr);}}
+@media (max-width:480px){.grid{grid-template-columns:1fr;}}
+.type-card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:10px;
+padding:1.1rem 1.2rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.type-card strong{display:block;font-family:'Georgia', serif;color:var(--accent);margin-bottom:.2rem;}
+.type-card span{font-size:.85rem;color:#4a3c26;}
+
+/* Map */
+.map-frame{
+width:100%;
+height:340px;
+border:1px solid var(--line);
+border-radius:12px;
+overflow:hidden;
+}
+.map-frame iframe{width:100%;height:100%;border:0;}
+.map-note{
+font-size:.85rem;
+color:#8a7a58;
+margin-top:.8rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Event cards */
+.event-list{
+display:flex;
+flex-direction:column;
+gap:1.1rem;
+margin-top:2rem;
+}
+.event-card{
+display:flex;
+gap:1.2rem;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:12px;
+padding:1.3rem 1.5rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+align-items:flex-start;
+}
+@media (max-width:600px){.event-card{flex-direction:column;}}
+.event-date{
+flex-shrink:0;
+width:64px;
+text-align:center;
+background:var(--ink);
+color:#fff;
+border-radius:8px;
+padding:.6em .4em;
+font-family:'Georgia', serif;
+}
+.event-date .day{font-size:1.3rem;line-height:1;display:block;}
+.event-date .mon{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85;}
+.event-body{flex-grow:1;}
+.event-body h3{
+font-family:'Georgia', serif;
+margin:0 0 .3rem 0;
+font-size:1.1rem;
+}
+.event-body .meta{
+font-size:.82rem;
+color:var(--accent2);
+margin:0 0 .5rem 0;
+text-transform:uppercase;
+letter-spacing:.06em;
+}
+.event-body p{
+margin:0 0 .8rem 0;
+font-size:.92rem;
+line-height:1.6;
+color:#4a3c26;
+}
+.example-tag{
+display:inline-block;
+font-size:.68rem;
+letter-spacing:.1em;
+text-transform:uppercase;
+color:#8a7a58;
+border:1px solid var(--line);
+border-radius:999px;
+padding:.25em .7em;
+margin-bottom:.6rem;
+}
+.calendar-note{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.9rem;
+color:#4a3c26;
+background:var(--card);
+border:1px dashed var(--line);
+border-radius:10px;
+padding:1.1rem 1.3rem;
+margin-top:1.6rem;
+}
+
+/* Form */
+form.listing{
+display:flex;
+flex-direction:column;
+gap:1.1rem;
+max-width:640px;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.field label{
+display:block;
+font-size:.85rem;
+color:#6b5a3a;
+margin-bottom:.4rem;
+}
+.field input[type=text],
+.field input[type=email],
+.field input[type=url],
+.field input[type=date],
+.field input[type=time],
+.field select,
+.field textarea{
+width:100%;
+font-family:'Helvetica Neue', Arial, sans-serif;
+padding:.8em 1em;
+border:1px solid var(--line);
+border-radius:6px;
+font-size:1rem;
+background:#fff;
+color:var(--ink);
+}
+.field input[type=file]{
+width:100%;
+font-family:'Helvetica Neue', Arial, sans-serif;
+padding:.7em;
+border:1px dashed var(--line);
+border-radius:6px;
+background:#fff;
+font-size:.9rem;
+}
+.field textarea{min-height:100px;resize:vertical;}
+.row-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:1.1rem;
+}
+@media (max-width:560px){.row-2{grid-template-columns:1fr;}}
+.note{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.85rem;
+color:#8a7a58;
+max-width:460px;
+}
+
+/* Share row */
+.share-row{
+display:flex;
+align-items:center;
+gap:.7rem;
+flex-wrap:wrap;
+justify-content:center;
+font-family:'Helvetica Neue', Arial, sans-serif;
+margin-top:2.5rem;
+}
+.share-row .share-label{
+font-size:.78rem;
+letter-spacing:.1em;
+text-transform:uppercase;
+color:#8a7a58;
+margin-right:.3rem;
+}
+.share-row a, .share-row button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:36px;
+height:36px;
+border-radius:50%;
+background:var(--card);
+border:1px solid var(--line);
+color:var(--ink);
+text-decoration:none;
+font-size:.95rem;
+cursor:pointer;
+}
+.share-row a:hover, .share-row button:hover{border-color:var(--accent2);color:var(--accent2);}
+
+footer{
+text-align:center;
+padding:3rem 6vw;
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.78rem;
+color:#9a8c6c;
+border-top:1px solid var(--line);
+display:flex;
+align-items:center;
+justify-content:center;
+gap:1.6rem;
+flex-wrap:wrap;
+}
+footer .foot-brand{display:flex;align-items:center;gap:.5rem;}
+footer .foot-mark{width:16px;height:16px;opacity:.8;flex-shrink:0;}
+footer a{color:#9a8c6c;}
+</style>
+</head>
+<body>
+
+<nav class="top">
+<a class="brand" href="index.html">
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="28" stroke="#c65d2e" stroke-width="2"/>
+<path d="M32 12 L38 32 L32 52 L26 32 Z" fill="#c65d2e"/>
+<circle cx="32" cy="32" r="3" fill="#1c1408"/>
+</svg>
+Backpacker <span>Directory</span>
+</a>
+<div class="nav-links">
+<a class="back" href="businesses.html">List Your Business</a>
+<a class="back" href="agents.html">Become an Agent</a>
+<a class="back" href="index.html">&larr; Home</a>
+</div>
+</nav>
+
+<header class="hero">
+<div class="badge">Events</div>
+<h1>Post Your Event — <span>Anywhere In The World</span></h1>
+<p class="lede">
+Meetups, pub crawls, volunteer days, language exchanges, tours, workshops —
+if it's something travelers would want to know about, it belongs here.
+Backpacker Directory events aren't limited to one region or one city, they're
+global, just like the community.
+</p>
+<div class="global-strip">
+<span>Every Country</span>
+<span>Every City</span>
+<span>Any Kind Of Event</span>
+</div>
+<div class="cta-row" style="margin-top:2rem;">
+<a class="btn btn-primary" href="#post-event">Post An Event — Free</a>
+<a class="btn btn-outline" href="#upcoming">See Upcoming Events</a>
+</div>
+</header>
+
+<section id="event-types">
+<div class="section-inner">
+<div class="kicker">What Fits Here</div>
+<h2>The Kind Of Events We Mean</h2>
+<p class="intro">
+If it's useful, fun, or interesting for someone travelling or living abroad,
+it fits. A few examples:
+</p>
+<div class="grid">
+<div class="type-card"><strong>Meetups</strong><span>Hostel socials, expat drinks, new-in-town hangouts</span></div>
+<div class="type-card"><strong>Tours &amp; Trips</strong><span>Day trips, hikes, island hops, group excursions</span></div>
+<div class="type-card"><strong>Language Exchange</strong><span>Practice a language, meet locals and travelers</span></div>
+<div class="type-card"><strong>Volunteering</strong><span>Beach cleanups, teaching, community projects</span></div>
+<div class="type-card"><strong>Workshops</strong><span>Cooking classes, skills swaps, photography walks</span></div>
+<div class="type-card"><strong>Nightlife</strong><span>Pub crawls, live music, full moon parties</span></div>
+</div>
+</div>
+</section>
+
+<section class="tinted" id="upcoming">
+<div class="section-inner">
+<div class="kicker">Find Something Happening</div>
+<h2>Upcoming Events</h2>
+<p class="intro">
+A rough map of where things are happening, plus a running list you can add
+straight to your own Google Calendar. Real community events will start
+filling this in as they're posted below — for now, here's what it'll look like.
+</p>
+
+<div class="map-frame">
+<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-170,-50,170,70&amp;layer=mapnik" loading="lazy" title="World map of Backpacker Directory events"></iframe>
+</div>
+<p class="map-note">Showing the whole world for now — once enough events are posted, this will zoom to wherever you're browsing from.</p>
+
+<div class="event-list" id="eventList">
+
+<div class="event-card">
+<div class="event-date"><span class="day">27</span><span class="mon">Sep</span></div>
+<div class="event-body">
+<div class="example-tag">Example</div>
+<h3>Backpacker Meetup — Siem Reap</h3>
+<p class="meta">Meetup · Siem Reap, Cambodia</p>
+<p>Rooftop drinks and easy conversation for anyone passing through — swap routes, tips, and travel stories with other backpackers in town.</p>
+<a class="btn-small add-to-cal" data-title="Backpacker Meetup — Siem Reap" data-location="Siem Reap, Cambodia" data-details="Rooftop drinks and easy conversation for backpackers passing through Siem Reap." data-start="20260927T180000" data-end="20260927T210000" href="#" target="_blank" rel="noopener">+ Add to Google Calendar</a>
+</div>
+</div>
+
+<div class="event-card">
+<div class="event-date"><span class="day">04</span><span class="mon">Oct</span></div>
+<div class="event-body">
+<div class="example-tag">Example</div>
+<h3>Full Moon Beach Bonfire — Koh Rong</h3>
+<p class="meta">Nightlife · Koh Rong, Cambodia</p>
+<p>Bonfire, music, and a beach full of travelers. Bring your own drinks, show up whenever, leave whenever.</p>
+<a class="btn-small add-to-cal" data-title="Full Moon Beach Bonfire — Koh Rong" data-location="Koh Rong, Cambodia" data-details="Beach bonfire and music for travelers on Koh Rong." data-start="20261004T190000" data-end="20261004T230000" href="#" target="_blank" rel="noopener">+ Add to Google Calendar</a>
+</div>
+</div>
+
+<div class="event-card">
+<div class="event-date"><span class="day">10</span><span class="mon">Oct</span></div>
+<div class="event-body">
+<div class="example-tag">Example</div>
+<h3>Language Exchange Night — Lisbon</h3>
+<p class="meta">Language Exchange · Lisbon, Portugal</p>
+<p>Practice Portuguese, English, or whatever you're learning — casual, friendly, no pressure. Locals and travelers both welcome.</p>
+<a class="btn-small add-to-cal" data-title="Language Exchange Night — Lisbon" data-location="Lisbon, Portugal" data-details="Casual language exchange evening for locals and travelers in Lisbon." data-start="20261010T183000" data-end="20261010T203000" href="#" target="_blank" rel="noopener">+ Add to Google Calendar</a>
+</div>
+</div>
+
+</div>
+
+<div class="calendar-note">
+Each event has its own "Add to Google Calendar" button, so anyone can save it
+straight to their own calendar in one tap — no account or sign-in with us
+needed. Once we're running a shared community calendar, a live view of every
+upcoming event will sit right here too.
+</div>
+</div>
+</section>
+
+<section id="post-event">
+<div class="section-inner">
+<div class="kicker">Post An Event</div>
+<h2>Add Your Event</h2>
+<p class="intro">
+Free to post. Takes a couple of minutes — add a photo or flyer if you have
+one, it helps people recognise it.
+</p>
+
+<form class="listing" onsubmit="return false;">
+
+<div class="field">
+<label for="evName">Event name</label>
+<input type="text" id="evName" required>
+</div>
+
+<div class="field">
+<label for="evType">Event type</label>
+<select id="evType">
+<option>Meetup</option>
+<option>Tour / Trip</option>
+<option>Language Exchange</option>
+<option>Volunteering</option>
+<option>Workshop</option>
+<option>Nightlife</option>
+<option>Sports / Outdoors</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="row-2">
+<div class="field">
+<label for="evCountry">Country</label>
+<input type="text" id="evCountry" required>
+</div>
+<div class="field">
+<label for="evCity">City / Venue</label>
+<input type="text" id="evCity" required>
+</div>
+</div>
+
+<div class="row-2">
+<div class="field">
+<label for="evDate">Date</label>
+<input type="date" id="evDate" required>
+</div>
+<div class="field">
+<label for="evTime">Time</label>
+<input type="time" id="evTime">
+</div>
+</div>
+
+<div class="field">
+<label for="evLink">Event link (Facebook, Instagram, website — optional)</label>
+<input type="url" id="evLink" placeholder="https://">
+</div>
+
+<div class="field">
+<label for="evEmail">Organizer contact email</label>
+<input type="email" id="evEmail" required>
+</div>
+
+<div class="field">
+<label for="evDesc">Tell travelers what to expect</label>
+<textarea id="evDesc"></textarea>
+</div>
+
+<div class="field">
+<label>Photo or flyer (optional)</label>
+<input type="file" id="evMedia" accept="image/*">
+</div>
+
+<button type="submit" class="btn btn-primary" style="align-self:flex-start;">Submit Event</button>
+<p class="note">No spam, and posting an event is free. We review new events before they go live.</p>
+</form>
+
+<div class="share-row" id="shareRow">
+<span class="share-label">Share This Page</span>
+<a id="shareWhatsApp" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp" title="WhatsApp">💬</a>
+<a id="shareFacebook" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook" title="Facebook">f</a>
+<a id="shareX" href="#" target="_blank" rel="noopener" aria-label="Share on X" title="X / Twitter">𝕏</a>
+<a id="shareTelegram" href="#" target="_blank" rel="noopener" aria-label="Share on Telegram" title="Telegram">✈</a>
+<a id="shareReddit" href="#" target="_blank" rel="noopener" aria-label="Share on Reddit" title="Reddit">r/</a>
+<a id="shareEmail" href="#" aria-label="Share by email" title="Email">✉</a>
+<button type="button" id="shareCopy" aria-label="Copy link" title="Copy link">🔗</button>
+</div>
+</div>
+</section>
+
+<footer>
+<span class="foot-brand">
+<svg class="foot-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="28" stroke="#c65d2e" stroke-width="3"/>
+<path d="M32 12 L38 32 L32 52 L26 32 Z" fill="#c65d2e"/>
+</svg>
+&copy; 2026 Backpacker Directory
+</span>
+<a href="index.html">Home</a>
+<a href="businesses.html">List Your Business</a>
+<a href="agents.html">Become an Agent</a>
+<a href="index.html#deals">Handy Travel Links</a>
+</footer>
+
+<script>
+(function(){
+// Build "Add to Google Calendar" links from data attributes
+var addLinks = document.querySelectorAll('.add-to-cal');
+addLinks.forEach(function(el){
+var title = encodeURIComponent(el.getAttribute('data-title') || '');
+var location = encodeURIComponent(el.getAttribute('data-location') || '');
+var details = encodeURIComponent(el.getAttribute('data-details') || '');
+var start = el.getAttribute('data-start');
+var end = el.getAttribute('data-end');
+var url = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + title +
+'&dates=' + start + '/' + end +
+'&details=' + details +
+'&location=' + location;
+el.href = url;
+});
+
+// Share row
+var url = encodeURIComponent(window.location.href);
+var pageTitle = encodeURIComponent(document.title);
+var wa = document.getElementById('shareWhatsApp');
+var fb = document.getElementById('shareFacebook');
+var x = document.getElementById('shareX');
+var tg = document.getElementById('shareTelegram');
+var rd = document.getElementById('shareReddit');
+var em = document.getElementById('shareEmail');
+var cp = document.getElementById('shareCopy');
+if(wa) wa.href = 'https://wa.me/?text=' + pageTitle + '%20' + url;
+if(fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+if(x) x.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + pageTitle;
+if(tg) tg.href = 'https://t.me/share/url?url=' + url + '&text=' + pageTitle;
+if(rd) rd.href = 'https://www.reddit.com/submit?url=' + url + '&title=' + pageTitle;
+if(em) em.href = 'mailto:?subject=' + pageTitle + '&body=' + url;
+if(cp){
+cp.addEventListener('click', function(){
+navigator.clipboard.writeText(window.location.href).then(function(){
+var old = cp.textContent;
+cp.textContent = '✓';
+setTimeout(function(){ cp.textContent = old; }, 1500);
+}).catch(function(){});
+});
+}
+})();
+</script>
+
+</body>
+</html>
