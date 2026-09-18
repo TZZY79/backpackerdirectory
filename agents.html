@@ -56,6 +56,11 @@ color:var(--ink);
 border-bottom:1px solid var(--accent2);
 padding-bottom:2px;
 }
+nav.top .nav-links{
+display:flex;
+align-items:center;
+gap:1.4rem;
+}
 
 /* Hero */
 .hero{
@@ -160,6 +165,23 @@ line-height:1.6;
 color:#4a3c26;
 margin:0;
 }
+
+/* Day in the life */
+.day-story{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:12px;
+padding:1.8rem 2rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.day-story p{
+font-size:1rem;
+line-height:1.75;
+color:#4a3c26;
+margin:0 0 1rem 0;
+}
+.day-story p:last-child{margin-bottom:0;}
+.day-story strong{color:var(--accent);font-family:'Georgia', serif;}
 
 /* Steps */
 .steps{
@@ -350,7 +372,10 @@ footer a{color:#9a8c6c;}
 </svg>
 Backpacker <span>Directory</span>
 </a>
-<a class="back" href="index.html">&larr; Back to home</a>
+<div class="nav-links">
+<a class="back" href="businesses.html">List Your Business</a>
+<a class="back" href="index.html">&larr; Home</a>
+</div>
 </nav>
 
 <header class="hero">
@@ -393,6 +418,38 @@ and connections you're already having on the road.
 <p>Travel, explore, meet people — that's the job. The income is what happens while you're doing what you'd be doing anyway.</p>
 </div>
 </div>
+</div>
+</section>
+
+<section id="day-in-the-life">
+<div class="section-inner">
+<div class="kicker">A Day On This Job</div>
+<h2>What A Day Could Look Like</h2>
+<p class="intro">
+There's no clock-in, no shift pattern, no manager watching. Here's the kind
+of day this job can actually look like — and why what you get out of it is
+mostly up to you.
+</p>
+<div class="day-story">
+<p><strong>Morning.</strong> Coffee on a hostel rooftop, replying to a
+couple of business owners who said yes to being listed this week. Maybe a
+short walk into town, stopping to chat with a tour operator who's been
+wanting more backpacker bookings — ten minutes later, they're signed up.</p>
+<p><strong>Afternoon.</strong> However you want it. Exploring, working from
+a beach chair, diving into whatever brought you here in the first place —
+or reaching out to a couple more places on your list, if you're in the
+mood.</p>
+<p><strong>Evening.</strong> A message from another agent you know, who
+just landed a hostel and wants to compare notes. Maybe you start talking
+about teaming up.</p>
+</div>
+<p class="intro" style="margin-top:1.6rem;">
+That's the shape of it — but it's not a script. Some days this is fifteen
+minutes between sightseeing. Other days it's a few real conversations, or
+bringing a friend on board and building a small team of your own. The job
+scales with the effort you put in — treat it casually and it stays casual;
+treat it like something worth building, and it grows with you.
+</p>
 </div>
 </section>
 

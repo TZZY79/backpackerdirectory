@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>List Your Business — Backpacker Directory</title>
+<meta name="description" content="List your business on Backpacker Directory — a global directory built by travelers, for travelers. Free listings, or go Featured for top placement and social media shoutouts. Anywhere in the world.">
+<style>
+:root{
+--ink:#1c1408;
+--paper:#faf3e6;
+--accent:#c65d2e;
+--accent2:#2e7d5b;
+--line:#e4d5b7;
+--card:#ffffff;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+font-family:'Georgia', 'Times New Roman', serif;
+background:
+radial-gradient(circle at 20% 0%, rgba(198,93,46,0.07), transparent 40%),
+radial-gradient(circle at 90% 30%, rgba(46,125,91,0.07), transparent 40%),
+var(--paper);
+color:var(--ink);
+}
+a{color:inherit;}
+.wrap{max-width:920px;margin:0 auto;padding:0 6vw;}
+
+/* Top nav */
+nav.top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:1.4rem 6vw;
+border-bottom:1px solid var(--line);
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+nav.top .brand{
+display:flex;
+align-items:center;
+gap:.6rem;
+text-decoration:none;
+font-family:'Georgia', serif;
+font-weight:bold;
+font-size:1.05rem;
+color:var(--ink);
+}
+nav.top .brand svg{width:26px;height:26px;}
+nav.top .brand span{color:var(--accent);}
+nav.top .nav-links{
+display:flex;
+align-items:center;
+gap:1.4rem;
+}
+nav.top a.back{
+font-size:.85rem;
+text-decoration:none;
+color:var(--ink);
+border-bottom:1px solid var(--accent2);
+padding-bottom:2px;
+}
+
+/* Hero */
+.hero{
+text-align:center;
+padding:5rem 6vw 3.5rem 6vw;
+}
+.badge{
+display:inline-block;
+letter-spacing:.3em;
+text-transform:uppercase;
+font-size:.72rem;
+color:var(--accent2);
+border:1px solid var(--accent2);
+border-radius:999px;
+padding:.5em 1.2em;
+margin-bottom:1.8rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+h1{
+font-size:clamp(2rem, 5.5vw, 3.6rem);
+margin:0 0 .5em 0;
+line-height:1.08;
+}
+h1 span{color:var(--accent);}
+.hero p.lede{
+max-width:640px;
+margin:0 auto 2.2rem auto;
+font-size:1.15rem;
+line-height:1.65;
+color:#4a3c26;
+}
+.cta-row{
+display:flex;
+gap:.9rem;
+justify-content:center;
+flex-wrap:wrap;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn{
+display:inline-block;
+padding:.9em 1.7em;
+border-radius:6px;
+font-size:1rem;
+text-decoration:none;
+cursor:pointer;
+border:none;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:#a94c22;}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--line);}
+.btn-outline:hover{border-color:var(--accent2);color:var(--accent2);}
+
+/* Section shell */
+section{padding:4rem 6vw;border-top:1px solid var(--line);}
+section.tinted{background:rgba(198,93,46,0.05);}
+.section-inner{max-width:920px;margin:0 auto;}
+.kicker{
+font-family:'Helvetica Neue', Arial, sans-serif;
+text-transform:uppercase;
+letter-spacing:.18em;
+font-size:.72rem;
+color:var(--accent2);
+margin-bottom:.8rem;
+}
+h2{
+font-size:clamp(1.6rem, 3.4vw, 2.3rem);
+margin:0 0 1rem 0;
+}
+p.intro{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:1.02rem;
+line-height:1.7;
+color:#4a3c26;
+max-width:680px;
+margin:0 0 2rem 0;
+}
+
+/* Global strip */
+.global-strip{
+display:flex;
+align-items:center;
+gap:1rem;
+flex-wrap:wrap;
+justify-content:center;
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.85rem;
+letter-spacing:.04em;
+color:var(--accent2);
+text-transform:uppercase;
+margin-top:.4rem;
+}
+.global-strip span{
+border:1px solid var(--line);
+border-radius:999px;
+padding:.4em 1em;
+}
+
+/* Plans */
+.plan-grid{
+display:grid;
+grid-template-columns:repeat(2, 1fr);
+gap:1.6rem;
+align-items:stretch;
+}
+@media (max-width:680px){.plan-grid{grid-template-columns:1fr;}}
+.plan-card{
+position:relative;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:14px;
+padding:2rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+display:flex;
+flex-direction:column;
+}
+.plan-card.featured{
+border:2px solid var(--accent);
+}
+.plan-ribbon{
+position:absolute;
+top:-12px;
+right:1.6rem;
+background:var(--accent);
+color:#fff;
+font-size:.68rem;
+letter-spacing:.12em;
+text-transform:uppercase;
+padding:.4em .9em;
+border-radius:999px;
+}
+.plan-card h3{
+font-family:'Georgia', serif;
+font-size:1.3rem;
+margin:0 0 .3rem 0;
+color:var(--ink);
+}
+.plan-price{
+font-family:'Georgia', serif;
+font-size:1.6rem;
+color:var(--accent);
+margin:0 0 .2rem 0;
+}
+.plan-sub{
+font-size:.85rem;
+color:#8a7a58;
+margin:0 0 1.4rem 0;
+}
+.plan-card ul{
+list-style:none;
+margin:0 0 1.6rem 0;
+padding:0;
+flex-grow:1;
+}
+.plan-card li{
+font-size:.92rem;
+line-height:1.6;
+color:#4a3c26;
+margin-bottom:.7rem;
+padding-left:1.4rem;
+position:relative;
+}
+.plan-card li::before{
+content:'✓';
+position:absolute;
+left:0;
+color:var(--accent2);
+font-weight:bold;
+}
+.plan-note{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.88rem;
+color:#8a7a58;
+max-width:640px;
+margin:2rem auto 0 auto;
+text-align:center;
+line-height:1.6;
+}
+
+/* Form */
+form.listing{
+display:flex;
+flex-direction:column;
+gap:1.1rem;
+max-width:640px;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.field label{
+display:block;
+font-size:.85rem;
+color:#6b5a3a;
+margin-bottom:.4rem;
+}
+.field input[type=text],
+.field input[type=email],
+.field input[type=url],
+.field select,
+.field textarea{
+width:100%;
+font-family:'Helvetica Neue', Arial, sans-serif;
+padding:.8em 1em;
+border:1px solid var(--line);
+border-radius:6px;
+font-size:1rem;
+background:#fff;
+color:var(--ink);
+}
+.field textarea{min-height:110px;resize:vertical;}
+.row-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:1.1rem;
+}
+@media (max-width:560px){.row-2{grid-template-columns:1fr;}}
+.type-choice{
+display:flex;
+gap:1rem;
+flex-wrap:wrap;
+}
+.type-choice label{
+flex:1;
+min-width:180px;
+border:1px solid var(--line);
+border-radius:8px;
+padding:.9em 1.1em;
+display:flex;
+align-items:center;
+gap:.6rem;
+cursor:pointer;
+font-size:.92rem;
+color:var(--ink);
+}
+.type-choice input{margin:0;}
+.note{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.85rem;
+color:#8a7a58;
+max-width:460px;
+}
+
+footer{
+text-align:center;
+padding:3rem 6vw;
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.78rem;
+color:#9a8c6c;
+border-top:1px solid var(--line);
+}
+footer a{color:#9a8c6c;}
+</style>
+</head>
+<body>
+
+<nav class="top">
+<a class="brand" href="index.html">
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="28" stroke="#c65d2e" stroke-width="2"/>
+<path d="M32 12 L38 32 L32 52 L26 32 Z" fill="#c65d2e"/>
+<circle cx="32" cy="32" r="3" fill="#1c1408"/>
+</svg>
+Backpacker <span>Directory</span>
+</a>
+<div class="nav-links">
+<a class="back" href="agents.html">Become an Agent</a>
+<a class="back" href="index.html">&larr; Home</a>
+</div>
+</nav>
+
+<header class="hero">
+<div class="badge">For Businesses</div>
+<h1>Get Found By Travelers — <span>Anywhere In The World</span></h1>
+<p class="lede">
+Backpacker Directory isn't a regional guide — it's a global directory built
+by travelers, for travelers. Whether you run a hostel in Siem Reap, a surf
+camp in Portugal, a tour company in Peru, or a café anywhere backpackers
+pass through, you belong here.
+</p>
+<div class="global-strip">
+<span>Every Country</span>
+<span>Every City</span>
+<span>Every Type Of Business</span>
+</div>
+<div class="cta-row" style="margin-top:2rem;">
+<a class="btn btn-primary" href="#listing-form">List For Free</a>
+<a class="btn btn-outline" href="#plans">See Featured Option</a>
+</div>
+</header>
+
+<section id="plans">
+<div class="section-inner">
+<div class="kicker">Choose Your Listing</div>
+<h2>Two Ways To Get Listed</h2>
+<p class="intro">
+We're keeping this simple while we build the directory out — a free option
+for every business, and a featured option for businesses who want more
+visibility.
+</p>
+
+<div class="plan-grid">
+<div class="plan-card">
+<h3>Free Listing</h3>
+<div class="plan-price">Free</div>
+<p class="plan-sub">Always free — no catch</p>
+<ul>
+<li>Listed in the global Backpacker Directory</li>
+<li>Found by travelers browsing or searching by location and category</li>
+<li>Easy to update any time</li>
+</ul>
+<a class="btn btn-outline" href="#listing-form">List For Free</a>
+</div>
+
+<div class="plan-card featured">
+<div class="plan-ribbon">Most Visibility</div>
+<h3>Featured Listing</h3>
+<div class="plan-price">Pricing coming soon</div>
+<p class="plan-sub">Founding rates for early businesses</p>
+<ul>
+<li>Everything in Free, plus:</li>
+<li>Priority placement — your listing stays at the top of the page</li>
+<li>Social media shoutouts a few times a month — more often while we're not yet fully booked with featured ads</li>
+<li>A "Featured" badge on your listing</li>
+</ul>
+<a class="btn btn-primary" href="#listing-form">Register Interest</a>
+</div>
+</div>
+
+<p class="plan-note">
+Pricing isn't locked in yet — we want it to be fair and competitive, not
+just profitable for us. Register your interest now and we'll reach out
+with founding-member rates before anyone else.
+</p>
+</div>
+</section>
+
+<section class="tinted" id="listing-form">
+<div class="section-inner">
+<div class="kicker">Get Listed</div>
+<h2>Add Your Business</h2>
+<p class="intro">
+Takes a couple of minutes. We review new listings before they go live.
+</p>
+
+<form class="listing" onsubmit="return false;">
+
+<div class="field">
+<label>Listing type</label>
+<div class="type-choice">
+<label><input type="radio" name="listingType" value="free" checked> Free Listing</label>
+<label><input type="radio" name="listingType" value="featured"> Featured Listing</label>
+</div>
+</div>
+
+<div class="field">
+<label for="bizName">Business name</label>
+<input type="text" id="bizName" required>
+</div>
+
+<div class="row-2">
+<div class="field">
+<label for="bizCountry">Country</label>
+<input type="text" id="bizCountry" required>
+</div>
+<div class="field">
+<label for="bizCity">City / Region</label>
+<input type="text" id="bizCity" required>
+</div>
+</div>
+
+<div class="field">
+<label for="bizCategory">Category</label>
+<select id="bizCategory">
+<option>Accommodation / Hostel</option>
+<option>Café / Restaurant</option>
+<option>Tours &amp; Activities</option>
+<option>Shop / Retail</option>
+<option>Transport</option>
+<option>Coworking / Remote Work</option>
+<option>Nightlife</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label for="bizLink">Website or social link</label>
+<input type="url" id="bizLink" placeholder="https://">
+</div>
+
+<div class="field">
+<label for="bizEmail">Contact email</label>
+<input type="email" id="bizEmail" required>
+</div>
+
+<div class="field">
+<label for="bizDesc">What should travelers know about you?</label>
+<textarea id="bizDesc"></textarea>
+</div>
+
+<button type="submit" class="btn btn-primary" style="align-self:flex-start;">Submit Listing</button>
+<p class="note">No spam, and no payment required to submit — if you choose Featured, we'll follow up with pricing once it's ready.</p>
+</form>
+</div>
+</section>
+
+<footer>
+&copy; 2026 Backpacker Directory · <a href="index.html">Home</a> · <a href="agents.html">Become an Agent</a>
+</footer>
+
+</body>
+</html>
