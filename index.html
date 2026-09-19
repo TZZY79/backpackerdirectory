@@ -220,103 +220,19 @@ font-size:.92rem;
 .deal-list .deal-name small{display:block;color:#8a7a58;font-size:.78rem;margin-top:.1rem;}
 .deal-list .deal-rate{color:var(--accent);white-space:nowrap;font-weight:bold;}
 
-/* --- Floating YouTube playlist widget --- */
-.yt-float-wrap{
-position:fixed;
-right:18px;
-bottom:18px;
-width:300px;
-max-height:80vh;
-z-index:9999;
-font-family:'Helvetica Neue', Arial, sans-serif;
-text-align:left;
-transition:width .2s ease;
-}
-.yt-float-wrap.collapsed{
-width:180px;
-}
-.yt-float-wrap.expanded{
-width:min(560px, 92vw);
-}
-.yt-float-card{
-background:var(--paper);
-border:1px solid var(--line);
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 12px 30px rgba(28,20,8,0.28);
-}
-.yt-float-titlebar{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:.5rem;
-padding:.5em .6em;
-background:var(--ink);
-color:#fff;
-}
-.yt-float-titlebar span{
-font-size:.75rem;
-letter-spacing:.04em;
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
-}
-.yt-float-controls{
-display:flex;
-align-items:center;
-gap:.1rem;
-flex-shrink:0;
-}
-.yt-float-titlebar button{
-all:unset;
-cursor:pointer;
-font-size:.85rem;
-color:#fff;
-padding:.15em .4em;
-border-radius:4px;
-line-height:1;
-}
-.yt-float-titlebar button:hover{background:rgba(255,255,255,0.15);}
-.yt-float-wrap.collapsed .yt-when-open{
-display:none;
-}
-.yt-player-inner{
-position:relative;
-width:100%;
-padding-top:56.25%;
-background:#000;
-}
-.yt-float-wrap.collapsed .yt-player-inner,
-.yt-float-wrap.collapsed .yt-unmute-btn{
-display:none;
-}
-.yt-player-inner iframe{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-border:0;
-}
-.yt-unmute-btn{
-position:absolute;
-bottom:8px;
-right:8px;
-z-index:5;
-font-size:.72rem;
-padding:.4em .9em;
-border:none;
-border-radius:999px;
-background:rgba(28,20,8,0.72);
-color:#fff;
-cursor:pointer;
-}
-.yt-unmute-btn:hover{background:rgba(28,20,8,0.9);}
-@media (max-width:480px){
-.yt-float-wrap{ width:44vw; right:12px; bottom:12px; }
-.yt-float-wrap.collapsed{ width:150px; }
-.yt-float-wrap.expanded{ width:92vw; right:4vw; }
-}
 </style>
+<link rel="canonical" href="https://backpackerdirectory.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Backpacker Directory">
+<meta property="og:title" content="Backpacker Directory — Coming Soon">
+<meta property="og:description" content="Backpacker Directory — a community where travelers help each other earn, connect and explore while on the road. Launching soon.">
+<meta property="og:image" content="https://backpackerdirectory.com/assets/backpacker-logo.png">
+<meta property="og:url" content="https://backpackerdirectory.com/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/theme.css">
+<script defer src="assets/config.js"></script>
+<script defer src="assets/icons.js"></script>
+<script defer src="assets/site.js"></script>
 </head>
 <body>
 
@@ -335,8 +251,8 @@ doing the same.
 
 <div class="divider"></div>
 
-<form onsubmit="return false;">
-<input type="email" placeholder="your@email.com" required>
+<form data-bd-type="subscribe" onsubmit="return false;">
+<input type="email" name="email" placeholder="your@email.com" required aria-label="Your email">
 <button type="submit">Notify me at launch</button>
 </form>
 <p class="note">No spam — just one email when the directory opens its doors.</p>
@@ -345,21 +261,12 @@ doing the same.
 <a href="agents.html">Become an Agent</a>
 <a href="businesses.html">List Your Business</a>
 <a href="events.html">Post an Event</a>
+<a href="blog.html">Blog</a>
 <a href="https://www.youtube.com/@TTTT-BCN" target="_blank" rel="noopener">Follow the journey on YouTube</a>
 <a href="https://naturalstylebarcelona.xyz" target="_blank" rel="noopener">Natural Style Barcelona</a>
-<a href="https://cryptoizfuture.blogspot.com/p/free-courses.html" target="_blank" rel="noopener">Free Udemy courses</a>
 </div>
 
-<div class="share-row" id="shareRow">
-<span class="share-label">Share</span>
-<a id="shareWhatsApp" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp" title="WhatsApp">💬</a>
-<a id="shareFacebook" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook" title="Facebook">f</a>
-<a id="shareX" href="#" target="_blank" rel="noopener" aria-label="Share on X" title="X / Twitter">𝕏</a>
-<a id="shareTelegram" href="#" target="_blank" rel="noopener" aria-label="Share on Telegram" title="Telegram">✈</a>
-<a id="shareReddit" href="#" target="_blank" rel="noopener" aria-label="Share on Reddit" title="Reddit">r/</a>
-<a id="shareEmail" href="#" aria-label="Share by email" title="Email">✉</a>
-<button type="button" id="shareCopy" aria-label="Copy link" title="Copy link">🔗</button>
-</div>
+<div class="bd-share" data-bd-share></div>
 
 <details class="deals" id="deals">
 <summary>🎒 Handy Travel Links</summary>
@@ -378,121 +285,10 @@ doing the same.
 </div>
 </details>
 
-<!-- Free Udemy course spots: permanent banner, points to the one page that is kept up to date -->
-<div style="max-width:520px;margin:24px auto;padding:14px 16px;border:3px solid #d9822b;border-radius:14px;background:#fff8e7;text-align:center;font-family:Arial,sans-serif;box-shadow:4px 4px 0 #f2c14e">
-<div style="font-size:18px;font-weight:bold;color:#8a3b12">&#127873; Free places on my Udemy courses</div>
-<div style="font-size:14px;color:#5b4636;margin:6px 0 12px">Limited spots, refreshed every month.</div>
-<a href="https://cryptoizfuture.blogspot.com/p/free-courses.html" target="_blank" rel="noopener" style="display:inline-block;padding:10px 20px;background:#d9822b;color:#ffffff;border-radius:30px;text-decoration:none;font-weight:bold">See what is free right now</a>
-</div>
-
 <footer>
 <img class="foot-mark" src="assets/backpacker-logo.png" alt="Backpacker Directory logo">
 &copy; 2026 Backpacker Directory
 </footer>
-
-<div class="yt-float-wrap" id="ytWrap">
-<div class="yt-float-card">
-<div class="yt-float-titlebar">
-<span>▶ Now playing — the journey</span>
-<div class="yt-float-controls">
-<button type="button" class="yt-when-open" id="ytPrevBtn" aria-label="Previous video" title="Previous video">⏮</button>
-<button type="button" class="yt-when-open" id="ytNextBtn" aria-label="Next video" title="Next video">⏭</button>
-<button type="button" class="yt-when-open" id="ytEnlargeBtn" aria-label="Enlarge player" title="Enlarge player">⤢</button>
-<button type="button" id="ytCollapseBtn" aria-label="Minimize player" title="Minimize player">–</button>
-</div>
-</div>
-<div class="yt-player-inner">
-<iframe
-id="ytPlayer"
-src="https://www.youtube.com/embed/videoseries?list=PLKxHYwa7Ft84Wxb4nGzDdn8m1zOCFQR-y&autoplay=1&mute=1&loop=1&playsinline=1&enablejsapi=1&rel=0&modestbranding=1"
-title="Backpacker Directory — YouTube playlist"
-allow="autoplay; encrypted-media; picture-in-picture"
-allowfullscreen
-></iframe>
-<button type="button" class="yt-unmute-btn" id="ytUnmuteBtn" aria-label="Unmute video">🔊 Unmute</button>
-</div>
-</div>
-</div>
-
-<script>
-(function(){
-var iframe = document.getElementById('ytPlayer');
-var unmuteBtn = document.getElementById('ytUnmuteBtn');
-var collapseBtn = document.getElementById('ytCollapseBtn');
-var enlargeBtn = document.getElementById('ytEnlargeBtn');
-var nextBtn = document.getElementById('ytNextBtn');
-var prevBtn = document.getElementById('ytPrevBtn');
-var wrap = document.getElementById('ytWrap');
-var muted = true;
-var collapsed = false;
-var expanded = false;
-
-function sendCommand(func, args){
-if(!iframe || !iframe.contentWindow) return;
-iframe.contentWindow.postMessage(JSON.stringify({event:'command', func:func, args: args || []}), '*');
-}
-
-unmuteBtn.addEventListener('click', function(){
-if(muted){
-sendCommand('unMute');
-sendCommand('setVolume', [100]);
-unmuteBtn.textContent = '🔇 Mute';
-muted = false;
-} else {
-sendCommand('mute');
-unmuteBtn.textContent = '🔊 Unmute';
-muted = true;
-}
-});
-
-collapseBtn.addEventListener('click', function(){
-collapsed = !collapsed;
-wrap.classList.toggle('collapsed', collapsed);
-collapseBtn.textContent = collapsed ? '+' : '–';
-collapseBtn.setAttribute('aria-label', collapsed ? 'Expand player' : 'Minimize player');
-});
-
-enlargeBtn.addEventListener('click', function(){
-expanded = !expanded;
-wrap.classList.toggle('expanded', expanded);
-enlargeBtn.textContent = expanded ? '⤡' : '⤢';
-enlargeBtn.setAttribute('aria-label', expanded ? 'Shrink player' : 'Enlarge player');
-enlargeBtn.title = expanded ? 'Shrink player' : 'Enlarge player';
-});
-
-nextBtn.addEventListener('click', function(){ sendCommand('nextVideo'); });
-prevBtn.addEventListener('click', function(){ sendCommand('previousVideo'); });
-})();
-</script>
-
-<script>
-(function(){
-var url = encodeURIComponent(window.location.href);
-var title = encodeURIComponent(document.title);
-var wa = document.getElementById('shareWhatsApp');
-var fb = document.getElementById('shareFacebook');
-var x = document.getElementById('shareX');
-var tg = document.getElementById('shareTelegram');
-var rd = document.getElementById('shareReddit');
-var em = document.getElementById('shareEmail');
-var cp = document.getElementById('shareCopy');
-if(wa) wa.href = 'https://wa.me/?text=' + title + '%20' + url;
-if(fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
-if(x) x.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
-if(tg) tg.href = 'https://t.me/share/url?url=' + url + '&text=' + title;
-if(rd) rd.href = 'https://www.reddit.com/submit?url=' + url + '&title=' + title;
-if(em) em.href = 'mailto:?subject=' + title + '&body=' + url;
-if(cp){
-cp.addEventListener('click', function(){
-navigator.clipboard.writeText(window.location.href).then(function(){
-var old = cp.textContent;
-cp.textContent = '✓';
-setTimeout(function(){ cp.textContent = old; }, 1500);
-}).catch(function(){});
-});
-}
-})();
-</script>
 
 <script src="https://pl31391915.profitableratecpmnetwork.com/25/2e/77/252e775f1a808b051b8f5f28e25d1ef1.js"></script>
 </body>
