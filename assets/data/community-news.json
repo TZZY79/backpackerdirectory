@@ -1,0 +1,10 @@
+{
+  "_help": "Each item scrolls in the top ticker. Only put REAL, aggregate good news here (milestones, new courses, new features). Never names or personal details. 'expires' is optional (YYYY-MM-DD) and the line disappears after that date.",
+  "items": [
+    {
+      "icon": "🎥",
+      "text": "TT's YouTube travel channel has passed 450 subscribers — thank you, travellers!",
+      "expires": "2026-12-31"
+    }
+  ]
+}

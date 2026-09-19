@@ -1,0 +1,4 @@
+{
+  "_help": "Add one object per blog post to the posts list. url must be a page in this folder, e.g. post-barcelona-sants.html. Newest date shows first.",
+  "posts": []
+}
