@@ -4,7 +4,7 @@ window.BD_CONFIG = {
   siteName: 'Backpacker Directory',
   siteUrl: 'https://backpackerdirectory.com',
 
-  /* YouTube: TT aka Titty (@TTTT-BCN) */
+  /* YouTube: Backpacker TT (@TTTT-BCN) */
   ytChannelUrl: 'https://www.youtube.com/@TTTT-BCN',
   ytSubscribeUrl: 'https://www.youtube.com/@TTTT-BCN?sub_confirmation=1',
   ytPlaylistId: 'PLKxHYwa7Ft84Wxb4nGzDdn8m1zOCFQR-y',
