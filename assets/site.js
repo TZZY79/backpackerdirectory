@@ -833,6 +833,58 @@ function addCredits(){
   foot.parentNode.insertBefore(c, foot.nextSibling);
 }
 
+/* ------------------------------------------------------------------ donations (every page) */
+function buildDonate(){
+  var addr = CFG.donateAddress;
+  if(!addr || q('.bd-donate')) return;
+  var foot = q('footer'); if(!foot) return;
+  var nets = CFG.donateNetworks || [], toks = CFG.donateTokens || [];
+  var short = addr.slice(0, 6) + '…' + addr.slice(-4);
+  function copyAddr(){ copyText(addr).then(function(ok){ toast(ok === false ? 'Copy failed — select the address and copy it manually' : 'Wallet address copied ✓ Check it starts ' + addr.slice(0, 6) + ' and ends ' + addr.slice(-4)); }); }
+  function showQR(){
+    var box = h('div', {class: 'bd-qr'});
+    openModal(h('div', {class: 'bd-donate-modal'}, [
+      h('h3', {text: 'Scan to donate'}), box,
+      h('p', {text: 'Scan with MetaMask, Trust Wallet, Binance, Coinbase Wallet or any wallet that supports ' + (nets.slice(0, 3).join(', ')) + ' and similar networks.'}),
+      h('code', {class: 'bd-donate-addr', text: addr}),
+      h('p', {class: 'bd-donate-warn', text: '⚠️ EVM networks only — do NOT send Bitcoin, Solana or TRON (TRC-20) to this address.'})
+    ]));
+    function draw(){
+      try{ var qr = window.qrcode(0, 'M'); qr.addData(addr); qr.make(); box.innerHTML = qr.createSvgTag({scalable: true, margin: 0}); }
+      catch(e){ box.textContent = 'Could not draw the code — use Copy instead.'; }
+    }
+    if(window.qrcode) draw(); else { var sc = h('script', {src: 'assets/qrcode.js'}); sc.onload = draw; sc.onerror = function(){ box.textContent = 'Could not load the QR code — use Copy instead.'; }; doc.head.appendChild(sc); }
+  }
+  function chips(list, cls){ return h('div', {class: 'bd-chips ' + cls}, list.map(function(t){ return h('span', {class: 'bd-chip', text: t}); })); }
+  var steps = h('ol', {class: 'bd-donate-steps'}, [
+    h('li', {html: '<b>Open your wallet or exchange</b> — MetaMask, Trust Wallet, Coinbase Wallet, Binance, Bybit, OKX… (on an exchange use <i>Withdraw</i>, in a wallet use <i>Send</i>).'}),
+    h('li', {html: '<b>Pick a coin</b> (USDT or USDC are easiest) and choose one of the networks listed above — e.g. <i>BNB Smart Chain (BEP-20)</i>, <i>Polygon</i> or <i>Arbitrum</i> have the lowest fees.'}),
+    h('li', {html: '<b>Paste the address</b> (tap <i>Copy</i>) or scan the QR code. Double-check it starts <code>' + addr.slice(0, 6) + '</code> and ends <code>' + addr.slice(-4) + '</code>.'}),
+    h('li', {html: '<b>No memo or tag is needed.</b> Enter any amount, confirm, and you\'re done. Sending a lot? Send a small test amount first.'})
+  ]);
+  var box = h('section', {class: 'bd-donate', id: 'donate', 'aria-labelledby': 'bd-donate-h'}, [
+    h('div', {class: 'bd-donate-card'}, [
+      h('div', {class: 'bd-donate-head'}, [
+        h('span', {class: 'bd-donate-ico', 'aria-hidden': 'true', text: '☕'}),
+        h('div', {}, [
+          h('h2', {id: 'bd-donate-h', text: 'Support the journey'}),
+          h('p', {text: 'Backpacker Directory is free and built on the road. If it\'s helped you, a crypto tip of any size keeps it growing — thank you, traveller!'})
+        ])
+      ]),
+      h('div', {class: 'bd-donate-addr-row'}, [
+        h('code', {class: 'bd-donate-addr', title: addr, 'data-short': short, text: addr}),
+        h('button', {type: 'button', class: 'btn btn-small bd-donate-copy', onclick: copyAddr, text: '📋 Copy'}),
+        h('button', {type: 'button', class: 'btn btn-small bd-donate-qr', onclick: showQR, text: '▦ QR code'})
+      ]),
+      h('p', {class: 'bd-donate-label', text: 'Accepted networks (same address on all):'}), chips(nets, 'bd-chips-net'),
+      h('p', {class: 'bd-donate-label', text: 'Popular coins:'}), chips(toks, 'bd-chips-tok'),
+      h('details', {class: 'bd-donate-how'}, [h('summary', {text: 'How to send a donation (4 quick steps)'}), steps]),
+      h('p', {class: 'bd-donate-warn', html: '⚠️ <b>EVM networks only.</b> Do <b>not</b> send Bitcoin (BTC), Solana (SOL) or TRON / USDT-TRC20 to this address — those coins would be lost. Crypto payments can\'t be reversed, so please double-check before sending. Donations are voluntary gifts and don\'t buy any product or service.'})
+    ])
+  ]);
+  foot.parentNode.insertBefore(box, foot);
+}
+
 /* ------------------------------------------------------------------ per-page enhancement */
 var pageNodes = [];
 function isThirdParty(n){
@@ -854,6 +906,7 @@ function enhancePage(){
   buildBlog();
   buildComments();
   buildWall();
+  buildDonate();
   addCredits();
   setupReveal();
 }
@@ -890,7 +943,7 @@ function swapTo(url, push){
     if(md && nmd) md.setAttribute('content', nmd.getAttribute('content') || '');
     /* 3. body: replace only what belongs to the page */
     pageNodes.forEach(function(n){ if(n.parentNode) n.parentNode.removeChild(n); });
-    qa('#bd-wall, .bd-credits').forEach(function(n){ n.remove(); });
+    qa('#bd-wall, .bd-credits, .bd-donate').forEach(function(n){ n.remove(); });
     var fresh = [];
     Array.prototype.slice.call(next.body.childNodes).forEach(function(n){
       if(n.nodeType === 1 && n.tagName === 'SCRIPT') return;
