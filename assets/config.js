@@ -12,7 +12,7 @@ window.BD_CONFIG = {
   /* Moderated submissions (events, comments, wall, business, agent, newsletter).
      Paste the Google Apps Script "web app" URL here once it is deployed (see SETUP-APPROVALS.md).
      While this is empty, forms politely say "submissions open soon" and nothing is collected or shown. */
-  submitUrl: '',
+  submitUrl: 'https://script.google.com/macros/s/AKfycbyKDp7kVVLgZ_XQ4iWl63mBRnwCUk4WX9GvMXUiSfctos9s_RuTRt3xO1hLQqgDyGBq/exec',
 
   /* Optional: Zalo Official Account ID. If you ever create a free Zalo OA, put its ID here and the
      Zalo button becomes a one-tap share instead of "copy + open Zalo". */
