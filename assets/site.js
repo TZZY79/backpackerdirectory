@@ -610,7 +610,7 @@ var FORM_OK = {
   event: 'Thanks! Your event is in the review queue — it will appear on the site once it’s approved.',
   business: 'Thanks! Your listing is in the review queue — we’ll check it before it goes live.',
   agent: 'Thanks — you’re on the list! We’ll email you when Agent sign-ups open.',
-  subscribe: 'Thanks — you’re on the list! We’ll email you once when the directory opens.'
+  subscribe: 'Thanks — you’re on the list! We’ll send occasional updates when new guides and listings go live.'
 };
 function bindForms(){
   qa('form[data-bd-type]').forEach(function(form){
