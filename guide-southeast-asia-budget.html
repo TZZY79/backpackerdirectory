@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backpacking Southeast Asia on a Budget: A First-Timer's Guide | Backpacker Directory</title>
+<meta name="description" content="A practical first-timer's guide to backpacking Southeast Asia on a budget: planning a route, daily costs, transport, staying safe, visas and respecting local culture.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<style>
+:root{
+--ink:#1c1408;
+--paper:#faf3e6;
+--accent:#c65d2e;
+--accent2:#2e7d5b;
+--line:#e4d5b7;
+--card:#ffffff;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+font-family:'Georgia', 'Times New Roman', serif;
+background:
+radial-gradient(circle at 20% 0%, rgba(198,93,46,0.07), transparent 40%),
+radial-gradient(circle at 90% 30%, rgba(46,125,91,0.07), transparent 40%),
+var(--paper);
+color:var(--ink);
+}
+a{color:inherit;}
+.wrap{max-width:920px;margin:0 auto;padding:0 6vw;}
+
+/* Top nav */
+nav.top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:1.4rem 6vw;
+border-bottom:1px solid var(--line);
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+nav.top .brand{
+display:flex;
+align-items:center;
+gap:.6rem;
+text-decoration:none;
+font-family:'Georgia', serif;
+font-weight:bold;
+font-size:1.05rem;
+color:var(--ink);
+}
+nav.top .brand svg, nav.top .brand img{width:30px;height:30px;border-radius:50%;}
+nav.top .brand span{color:var(--accent);}
+nav.top .nav-links{
+display:flex;
+align-items:center;
+gap:1.4rem;
+}
+nav.top a.back{
+font-size:.85rem;
+text-decoration:none;
+color:var(--ink);
+border-bottom:1px solid var(--accent2);
+padding-bottom:2px;
+}
+
+/* Hero */
+.hero{
+text-align:center;
+padding:5rem 6vw 3.5rem 6vw;
+}
+.badge{
+display:inline-block;
+letter-spacing:.3em;
+text-transform:uppercase;
+font-size:.72rem;
+color:var(--accent2);
+border:1px solid var(--accent2);
+border-radius:999px;
+padding:.5em 1.2em;
+margin-bottom:1.8rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+h1{
+font-size:clamp(2rem, 5.5vw, 3.6rem);
+margin:0 0 .5em 0;
+line-height:1.08;
+}
+h1 span{color:var(--accent);}
+.hero p.lede{
+max-width:640px;
+margin:0 auto 2.2rem auto;
+font-size:1.15rem;
+line-height:1.65;
+color:#4a3c26;
+}
+.cta-row{
+display:flex;
+gap:.9rem;
+justify-content:center;
+flex-wrap:wrap;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn{
+display:inline-block;
+padding:.9em 1.7em;
+border-radius:6px;
+font-size:1rem;
+text-decoration:none;
+cursor:pointer;
+border:none;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:#a94c22;}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--line);}
+.btn-outline:hover{border-color:var(--accent2);color:var(--accent2);}
+.btn-small{
+display:inline-block;
+padding:.55em 1em;
+border-radius:6px;
+font-size:.82rem;
+text-decoration:none;
+border:1px solid var(--accent2);
+color:var(--accent2);
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn-small:hover{background:var(--accent2);color:#fff;}
+
+/* Section shell */
+section{padding:4rem 6vw;border-top:1px solid var(--line);}
+section.tinted{background:rgba(198,93,46,0.05);}
+.section-inner{max-width:920px;margin:0 auto;}
+.kicker{
+font-family:'Helvetica Neue', Arial, sans-serif;
+text-transform:uppercase;
+letter-spacing:.18em;
+font-size:.72rem;
+color:var(--accent2);
+margin-bottom:.8rem;
+}
+h2{
+font-size:clamp(1.6rem, 3.4vw, 2.3rem);
+margin:0 0 1rem 0;
+}
+p.intro{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:1.02rem;
+line-height:1.7;
+color:#4a3c26;
+max-width:680px;
+margin:0 0 2rem 0;
+}
+
+/* Global strip */
+.global-strip{
+display:flex;
+align-items:center;
+gap:1rem;
+flex-wrap:wrap;
+justify-content:center;
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.85rem;
+letter-spacing:.04em;
+color:var(--accent2);
+text-transform:uppercase;
+margin-top:.4rem;
+}
+.global-strip span{
+border:1px solid var(--line);
+border-radius:999px;
+padding:.4em 1em;
+}
+
+/* Event type grid */
+.grid{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:1rem;
+}
+@media (max-width:720px){.grid{grid-template-columns:repeat(2, 1fr);}}
+@media (max-width:480px){.grid{grid-template-columns:1fr;}}
+.type-card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:10px;
+padding:1.1rem 1.2rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.type-card strong{display:block;font-family:'Georgia', serif;color:var(--accent);margin-bottom:.2rem;}
+.type-card span{font-size:.85rem;color:#4a3c26;}
+
+/* Map */
+.map-frame{
+width:100%;
+height:340px;
+border:1px solid var(--line);
+border-radius:12px;
+overflow:hidden;
+}
+.map-frame iframe{width:100%;height:100%;border:0;}
+.map-note{
+font-size:.85rem;
+color:#8a7a58;
+margin-top:.8rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Event cards */
+.event-list{
+display:flex;
+flex-direction:column;
+gap:1.1rem;
+margin-top:2rem;
+}
+.event-card{
+display:flex;
+gap:1.2rem;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:12px;
+padding:1.3rem 1.5rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+align-items:flex-start;
+}
+@media (max-width:600px){.event-card{flex-direction:column;}}
+.event-date{
+flex-shrink:0;
+width:64px;
+text-align:center;
+background:var(--ink);
+color:#fff;
+border-radius:8px;
+padding:.6em .4em;
+font-family:'Georgia', serif;
+}
+.event-date .day{font-size:1.3rem;line-height:1;display:block;}
+.event-date .mon{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85;}
+.event-body{flex-grow:1;}
+.event-body h3{
+font-family:'Georgia', serif;
+margin:0 0 .3rem 0;
+font-size:1.1rem;
+}
+.event-body .meta{
+font-size:.82rem;
+color:var(--accent2);
+margin:0 0 .5rem 0;
+text-transform:uppercase;
+letter-spacing:.06em;
+}
+.event-body p{
+margin:0 0 .8rem 0;
+font-size:.92rem;
+line-height:1.6;
+color:#4a3c26;
+}
+.example-tag{
+display:inline-block;
+font-size:.68rem;
+letter-spacing:.1em;
+text-transform:uppercase;
+color:#8a7a58;
+border:1px solid var(--line);
+border-radius:999px;
+padding:.25em .7em;
+margin-bottom:.6rem;
+}
+.calendar-note{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.9rem;
+color:#4a3c26;
+background:var(--card);
+border:1px dashed var(--line);
+border-radius:10px;
+padding:1.1rem 1.3rem;
+margin-top:1.6rem;
+}
+
+/* Form */
+form.listing{
+display:flex;
+flex-direction:column;
+gap:1.1rem;
+max-width:640px;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.field label{
+display:block;
+font-size:.85rem;
+color:#6b5a3a;
+margin-bottom:.4rem;
+}
+.field input[type=text],
+.field input[type=email],
+.field input[type=url],
+.field input[type=date],
+.field input[type=time],
+.field select,
+.field textarea{
+width:100%;
+font-family:'Helvetica Neue', Arial, sans-serif;
+padding:.8em 1em;
+border:1px solid var(--line);
+border-radius:6px;
+font-size:1rem;
+background:#fff;
+color:var(--ink);
+}
+.field input[type=file]{
+width:100%;
+font-family:'Helvetica Neue', Arial, sans-serif;
+padding:.7em;
+border:1px dashed var(--line);
+border-radius:6px;
+background:#fff;
+font-size:.9rem;
+}
+.field textarea{min-height:100px;resize:vertical;}
+.row-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:1.1rem;
+}
+@media (max-width:560px){.row-2{grid-template-columns:1fr;}}
+.note{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.85rem;
+color:#8a7a58;
+max-width:460px;
+}
+
+/* Share row */
+.share-row{
+display:flex;
+align-items:center;
+gap:.7rem;
+flex-wrap:wrap;
+justify-content:center;
+font-family:'Helvetica Neue', Arial, sans-serif;
+margin-top:2.5rem;
+}
+.share-row .share-label{
+font-size:.78rem;
+letter-spacing:.1em;
+text-transform:uppercase;
+color:#8a7a58;
+margin-right:.3rem;
+}
+.share-row a, .share-row button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:36px;
+height:36px;
+border-radius:50%;
+background:var(--card);
+border:1px solid var(--line);
+color:var(--ink);
+text-decoration:none;
+font-size:.95rem;
+cursor:pointer;
+}
+.share-row a:hover, .share-row button:hover{border-color:var(--accent2);color:var(--accent2);}
+
+footer{
+text-align:center;
+padding:3rem 6vw;
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.78rem;
+color:#9a8c6c;
+border-top:1px solid var(--line);
+display:flex;
+align-items:center;
+justify-content:center;
+gap:1.6rem;
+flex-wrap:wrap;
+}
+footer .foot-brand{display:flex;align-items:center;gap:.5rem;}
+footer .foot-mark{width:20px;height:20px;opacity:.9;flex-shrink:0;border-radius:50%;}
+footer a{color:#9a8c6c;}
+</style>
+<link rel="canonical" href="https://backpackerdirectory.com/guide-southeast-asia-budget.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Backpacker Directory">
+<meta property="og:title" content="Backpacking Southeast Asia on a Budget: A First-Timer's Guide">
+<meta property="og:description" content="A practical first-timer's guide to backpacking Southeast Asia on a budget: planning a route, daily costs, transport, staying safe, visas and respecting local culture.">
+<meta property="og:image" content="https://backpackerdirectory.com/assets/backpacker-logo.png">
+<meta property="og:url" content="https://backpackerdirectory.com/guide-southeast-asia-budget.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/theme.css">
+<script defer src="assets/config.js"></script>
+<script defer src="assets/icons.js"></script>
+<script defer src="assets/site.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7046048459108768" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-7046048459108768">
+<style>
+.page{max-width:780px;margin:0 auto;padding:1rem 6vw 3rem;text-align:left;line-height:1.75;font-size:1.06rem}
+.page h2{margin:2.2rem 0 .6rem;font-size:1.5rem}
+.page h3{margin:1.4rem 0 .4rem;font-size:1.15rem}
+.page ul,.page ol{padding-left:1.3rem}.page li{margin:.35rem 0}
+.page .tip{background:#fff8ea;border-left:5px solid var(--accent,#c65d2e);border-radius:10px;padding:.8rem 1rem;margin:1.2rem 0}
+.page .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:1.2rem 0}
+.page .cards a{display:block;background:#fff;border:1px solid var(--line,#e4d5b7);border-radius:14px;padding:1rem;text-decoration:none;color:inherit}
+.page .cards a:hover{border-color:var(--accent2,#2e7d5b)}
+.page .cards b{display:block;font-size:1.08rem;margin-bottom:.3rem}
+.page a{color:var(--accent2,#2e7d5b)}
+</style>
+</head>
+<body>
+
+<nav class="top">
+<a class="brand" href="index.html">
+<img src="assets/backpacker-logo.png" alt="Backpacker Directory logo">
+Backpacker <span>Directory</span>
+</a>
+<div class="nav-links">
+<a class="back" href="businesses.html">List Your Business</a>
+<a class="back" href="agents.html">Become an Agent</a>
+<a class="back" href="events.html">Post an Event</a>
+<a class="back" href="index.html">&larr; Home</a>
+</div>
+</nav>
+
+<header class="hero">
+<div class="badge">Guide · Southeast Asia</div>
+<h1>Southeast Asia <span>On A Budget</span></h1>
+<p class="lede">How to plan your first backpacking trip around Southeast Asia without overspending — or missing the best bits.</p>
+</header>
+
+<main class="page">
+
+<p>Southeast Asia is where many people take their first big backpacking trip, and for good reason: it is welcoming, beautiful, full of amazing food, and you can travel comfortably on a modest budget. Here is what we wish someone had told us before the first trip.</p>
+
+<h2>Planning a route</h2>
+<p>The classic loop links Thailand, Laos, Cambodia and Vietnam, with Malaysia, Indonesia and the Philippines as popular additions. The biggest mistake first-timers make is trying to see too much. Moving every two days is tiring and expensive. A good rhythm is two to four weeks per country, with a few slow weeks where you stay put.</p>
+<ul>
+<li><b>Mix cities, nature and beaches.</b> Busy cities are exciting, but plan quieter places in between to recharge.</li>
+<li><b>Think about the weather.</b> Monsoon seasons differ across the region, so one country can be wet while its neighbour is dry.</li>
+<li><b>Keep it flexible.</b> Book the first few nights, then decide as you go. Some of the best places are ones other travellers tell you about.</li>
+</ul>
+
+<h2>What things cost</h2>
+<p>Costs vary a lot between countries and between big cities and small towns, so treat any number online as a rough guide. As a pattern, your money goes furthest on street food, local buses and simple guesthouses, and disappears fastest on flights, alcohol, organised tours and western food.</p>
+<div class="tip"><b>Budget tip:</b> write down everything you spend for the first week. Most travellers are surprised where their money really goes — usually small daily extras, not the big items.</div>
+
+<h2>Getting around</h2>
+<ul>
+<li><b>Buses and minivans</b> are the cheapest way between towns. Night buses save a night of accommodation.</li>
+<li><b>Trains</b> in Thailand and Vietnam are slower but comfortable and scenic.</li>
+<li><b>Ride-hailing apps</b> work in many cities and avoid haggling over taxi prices.</li>
+<li><b>Budget airlines</b> can be cheap when booked early — but check baggage fees.</li>
+<li>If you rent a scooter, wear a helmet, carry the right licence and check your insurance covers it. Many travel insurance policies do not cover riding without a valid licence.</li>
+</ul>
+
+<h2>Visas and borders</h2>
+<p>Visa rules are different for every nationality and they change often. Many countries in the region offer e-visas or visas on arrival, but not all border crossings accept them. Before you travel, check the <b>official government e-visa website</b> — not an agency — and make sure your passport has at least six months' validity and blank pages.</p>
+
+<h2>Staying safe and healthy</h2>
+<ul>
+<li>See a travel health clinic before you go about vaccinations and medicine.</li>
+<li>Drink bottled or filtered water, and use mosquito repellent, especially at dusk.</li>
+<li>Keep valuables in a money belt or locker, and back up your documents online.</li>
+<li>Be careful with common tourist scams: "closed" attractions, unofficial taxis and gem shops.</li>
+</ul>
+
+<h2>Respecting local culture</h2>
+<p>Cover shoulders and knees in temples, take shoes off when asked, don't touch people's heads, and ask before taking photos of people. Learn a few words — "hello", "thank you" and "how much?" — in the local language. It makes a huge difference to how people treat you.</p>
+
+<h2>Ready to go?</h2>
+<p>Read our <a href="guide-money-sim-insurance.html">money, SIM card and insurance checklist</a>, then watch the journey through Cambodia, Vietnam and Thailand on <a href="https://www.youtube.com/@TTTT-BCN" target="_blank" rel="noopener">YouTube</a>.</p>
+
+</main>
+
+<footer>
+<span class="foot-brand">
+<img class="foot-mark" src="assets/backpacker-logo.png" alt="Backpacker Directory logo">
+&copy; 2026 Backpacker Directory
+</span>
+<a href="index.html">Home</a>
+<a href="businesses.html">List Your Business</a>
+<a href="agents.html">Become an Agent</a>
+<a href="events.html">Post an Event</a>
+<a href="index.html#deals">Handy Travel Links</a>
+<nav class="legal" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center"><a href="guides.html">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav>
+</footer>
+
+</body>
+</html>

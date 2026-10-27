@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Backpacker Directory</title>
+<meta name="description" content="Privacy policy for Backpacker Directory, including how we use cookies, Google AdSense advertising and anonymous statistics.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<style>
+:root{
+--ink:#1c1408;
+--paper:#faf3e6;
+--accent:#c65d2e;
+--accent2:#2e7d5b;
+--line:#e4d5b7;
+--card:#ffffff;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+font-family:'Georgia', 'Times New Roman', serif;
+background:
+radial-gradient(circle at 20% 0%, rgba(198,93,46,0.07), transparent 40%),
+radial-gradient(circle at 90% 30%, rgba(46,125,91,0.07), transparent 40%),
+var(--paper);
+color:var(--ink);
+}
+a{color:inherit;}
+.wrap{max-width:920px;margin:0 auto;padding:0 6vw;}
+
+/* Top nav */
+nav.top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:1.4rem 6vw;
+border-bottom:1px solid var(--line);
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+nav.top .brand{
+display:flex;
+align-items:center;
+gap:.6rem;
+text-decoration:none;
+font-family:'Georgia', serif;
+font-weight:bold;
+font-size:1.05rem;
+color:var(--ink);
+}
+nav.top .brand svg, nav.top .brand img{width:30px;height:30px;border-radius:50%;}
+nav.top .brand span{color:var(--accent);}
+nav.top .nav-links{
+display:flex;
+align-items:center;
+gap:1.4rem;
+}
+nav.top a.back{
+font-size:.85rem;
+text-decoration:none;
+color:var(--ink);
+border-bottom:1px solid var(--accent2);
+padding-bottom:2px;
+}
+
+/* Hero */
+.hero{
+text-align:center;
+padding:5rem 6vw 3.5rem 6vw;
+}
+.badge{
+display:inline-block;
+letter-spacing:.3em;
+text-transform:uppercase;
+font-size:.72rem;
+color:var(--accent2);
+border:1px solid var(--accent2);
+border-radius:999px;
+padding:.5em 1.2em;
+margin-bottom:1.8rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+h1{
+font-size:clamp(2rem, 5.5vw, 3.6rem);
+margin:0 0 .5em 0;
+line-height:1.08;
+}
+h1 span{color:var(--accent);}
+.hero p.lede{
+max-width:640px;
+margin:0 auto 2.2rem auto;
+font-size:1.15rem;
+line-height:1.65;
+color:#4a3c26;
+}
+.cta-row{
+display:flex;
+gap:.9rem;
+justify-content:center;
+flex-wrap:wrap;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn{
+display:inline-block;
+padding:.9em 1.7em;
+border-radius:6px;
+font-size:1rem;
+text-decoration:none;
+cursor:pointer;
+border:none;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:#a94c22;}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--line);}
+.btn-outline:hover{border-color:var(--accent2);color:var(--accent2);}
+.btn-small{
+display:inline-block;
+padding:.55em 1em;
+border-radius:6px;
+font-size:.82rem;
+text-decoration:none;
+border:1px solid var(--accent2);
+color:var(--accent2);
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.btn-small:hover{background:var(--accent2);color:#fff;}
+
+/* Section shell */
+section{padding:4rem 6vw;border-top:1px solid var(--line);}
+section.tinted{background:rgba(198,93,46,0.05);}
+.section-inner{max-width:920px;margin:0 auto;}
+.kicker{
+font-family:'Helvetica Neue', Arial, sans-serif;
+text-transform:uppercase;
+letter-spacing:.18em;
+font-size:.72rem;
+color:var(--accent2);
+margin-bottom:.8rem;
+}
+h2{
+font-size:clamp(1.6rem, 3.4vw, 2.3rem);
+margin:0 0 1rem 0;
+}
+p.intro{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:1.02rem;
+line-height:1.7;
+color:#4a3c26;
+max-width:680px;
+margin:0 0 2rem 0;
+}
+
+/* Global strip */
+.global-strip{
+display:flex;
+align-items:center;
+gap:1rem;
+flex-wrap:wrap;
+justify-content:center;
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.85rem;
+letter-spacing:.04em;
+color:var(--accent2);
+text-transform:uppercase;
+margin-top:.4rem;
+}
+.global-strip span{
+border:1px solid var(--line);
+border-radius:999px;
+padding:.4em 1em;
+}
+
+/* Event type grid */
+.grid{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:1rem;
+}
+@media (max-width:720px){.grid{grid-template-columns:repeat(2, 1fr);}}
+@media (max-width:480px){.grid{grid-template-columns:1fr;}}
+.type-card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:10px;
+padding:1.1rem 1.2rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.type-card strong{display:block;font-family:'Georgia', serif;color:var(--accent);margin-bottom:.2rem;}
+.type-card span{font-size:.85rem;color:#4a3c26;}
+
+/* Map */
+.map-frame{
+width:100%;
+height:340px;
+border:1px solid var(--line);
+border-radius:12px;
+overflow:hidden;
+}
+.map-frame iframe{width:100%;height:100%;border:0;}
+.map-note{
+font-size:.85rem;
+color:#8a7a58;
+margin-top:.8rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Event cards */
+.event-list{
+display:flex;
+flex-direction:column;
+gap:1.1rem;
+margin-top:2rem;
+}
+.event-card{
+display:flex;
+gap:1.2rem;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:12px;
+padding:1.3rem 1.5rem;
+font-family:'Helvetica Neue', Arial, sans-serif;
+align-items:flex-start;
+}
+@media (max-width:600px){.event-card{flex-direction:column;}}
+.event-date{
+flex-shrink:0;
+width:64px;
+text-align:center;
+background:var(--ink);
+color:#fff;
+border-radius:8px;
+padding:.6em .4em;
+font-family:'Georgia', serif;
+}
+.event-date .day{font-size:1.3rem;line-height:1;display:block;}
+.event-date .mon{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85;}
+.event-body{flex-grow:1;}
+.event-body h3{
+font-family:'Georgia', serif;
+margin:0 0 .3rem 0;
+font-size:1.1rem;
+}
+.event-body .meta{
+font-size:.82rem;
+color:var(--accent2);
+margin:0 0 .5rem 0;
+text-transform:uppercase;
+letter-spacing:.06em;
+}
+.event-body p{
+margin:0 0 .8rem 0;
+font-size:.92rem;
+line-height:1.6;
+color:#4a3c26;
+}
+.example-tag{
+display:inline-block;
+font-size:.68rem;
+letter-spacing:.1em;
+text-transform:uppercase;
+color:#8a7a58;
+border:1px solid var(--line);
+border-radius:999px;
+padding:.25em .7em;
+margin-bottom:.6rem;
+}
+.calendar-note{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.9rem;
+color:#4a3c26;
+background:var(--card);
+border:1px dashed var(--line);
+border-radius:10px;
+padding:1.1rem 1.3rem;
+margin-top:1.6rem;
+}
+
+/* Form */
+form.listing{
+display:flex;
+flex-direction:column;
+gap:1.1rem;
+max-width:640px;
+font-family:'Helvetica Neue', Arial, sans-serif;
+}
+.field label{
+display:block;
+font-size:.85rem;
+color:#6b5a3a;
+margin-bottom:.4rem;
+}
+.field input[type=text],
+.field input[type=email],
+.field input[type=url],
+.field input[type=date],
+.field input[type=time],
+.field select,
+.field textarea{
+width:100%;
+font-family:'Helvetica Neue', Arial, sans-serif;
+padding:.8em 1em;
+border:1px solid var(--line);
+border-radius:6px;
+font-size:1rem;
+background:#fff;
+color:var(--ink);
+}
+.field input[type=file]{
+width:100%;
+font-family:'Helvetica Neue', Arial, sans-serif;
+padding:.7em;
+border:1px dashed var(--line);
+border-radius:6px;
+background:#fff;
+font-size:.9rem;
+}
+.field textarea{min-height:100px;resize:vertical;}
+.row-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:1.1rem;
+}
+@media (max-width:560px){.row-2{grid-template-columns:1fr;}}
+.note{
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.85rem;
+color:#8a7a58;
+max-width:460px;
+}
+
+/* Share row */
+.share-row{
+display:flex;
+align-items:center;
+gap:.7rem;
+flex-wrap:wrap;
+justify-content:center;
+font-family:'Helvetica Neue', Arial, sans-serif;
+margin-top:2.5rem;
+}
+.share-row .share-label{
+font-size:.78rem;
+letter-spacing:.1em;
+text-transform:uppercase;
+color:#8a7a58;
+margin-right:.3rem;
+}
+.share-row a, .share-row button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:36px;
+height:36px;
+border-radius:50%;
+background:var(--card);
+border:1px solid var(--line);
+color:var(--ink);
+text-decoration:none;
+font-size:.95rem;
+cursor:pointer;
+}
+.share-row a:hover, .share-row button:hover{border-color:var(--accent2);color:var(--accent2);}
+
+footer{
+text-align:center;
+padding:3rem 6vw;
+font-family:'Helvetica Neue', Arial, sans-serif;
+font-size:.78rem;
+color:#9a8c6c;
+border-top:1px solid var(--line);
+display:flex;
+align-items:center;
+justify-content:center;
+gap:1.6rem;
+flex-wrap:wrap;
+}
+footer .foot-brand{display:flex;align-items:center;gap:.5rem;}
+footer .foot-mark{width:20px;height:20px;opacity:.9;flex-shrink:0;border-radius:50%;}
+footer a{color:#9a8c6c;}
+</style>
+<link rel="canonical" href="https://backpackerdirectory.com/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Backpacker Directory">
+<meta property="og:title" content="Privacy Policy">
+<meta property="og:description" content="Privacy policy for Backpacker Directory, including how we use cookies, Google AdSense advertising and anonymous statistics.">
+<meta property="og:image" content="https://backpackerdirectory.com/assets/backpacker-logo.png">
+<meta property="og:url" content="https://backpackerdirectory.com/privacy.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/theme.css">
+<script defer src="assets/config.js"></script>
+<script defer src="assets/icons.js"></script>
+<script defer src="assets/site.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7046048459108768" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-7046048459108768">
+<style>
+.page{max-width:780px;margin:0 auto;padding:1rem 6vw 3rem;text-align:left;line-height:1.75;font-size:1.06rem}
+.page h2{margin:2.2rem 0 .6rem;font-size:1.5rem}
+.page h3{margin:1.4rem 0 .4rem;font-size:1.15rem}
+.page ul,.page ol{padding-left:1.3rem}.page li{margin:.35rem 0}
+.page .tip{background:#fff8ea;border-left:5px solid var(--accent,#c65d2e);border-radius:10px;padding:.8rem 1rem;margin:1.2rem 0}
+.page .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:1.2rem 0}
+.page .cards a{display:block;background:#fff;border:1px solid var(--line,#e4d5b7);border-radius:14px;padding:1rem;text-decoration:none;color:inherit}
+.page .cards a:hover{border-color:var(--accent2,#2e7d5b)}
+.page .cards b{display:block;font-size:1.08rem;margin-bottom:.3rem}
+.page a{color:var(--accent2,#2e7d5b)}
+</style>
+</head>
+<body>
+
+<nav class="top">
+<a class="brand" href="index.html">
+<img src="assets/backpacker-logo.png" alt="Backpacker Directory logo">
+Backpacker <span>Directory</span>
+</a>
+<div class="nav-links">
+<a class="back" href="businesses.html">List Your Business</a>
+<a class="back" href="agents.html">Become an Agent</a>
+<a class="back" href="events.html">Post an Event</a>
+<a class="back" href="index.html">&larr; Home</a>
+</div>
+</nav>
+
+<header class="hero">
+<div class="badge">Legal</div>
+<h1>Privacy <span>Policy</span></h1>
+<p class="lede">How we collect, use and protect information on backpackerdirectory.com.</p>
+</header>
+
+<main class="page">
+
+<p><em>Last updated: 27 October 2026</em></p>
+<p>This privacy policy explains what information <b>Backpacker Directory</b> (backpackerdirectory.com) collects, how it is used, and the choices you have. Backpacker Directory is run by Tony as part of <b>Online Business Awareness</b>. If you have any question about this policy, contact us at <a href="mailto:onlinebusinessawareness@gmail.com">onlinebusinessawareness@gmail.com</a>.</p>
+
+<h2>1. Information we collect</h2>
+<h3>Information you give us</h3>
+<p>When you sign up for updates, submit a business listing, post an event or apply to become an agent, we collect the details you enter in the form — such as your name, email address, business details or event information. Approved listings and events are shown publicly on the site. We only use these details for the purpose you sent them for (for example, replying to you or reviewing a listing). We never sell your personal information.</p>
+<h3>Anonymous usage statistics</h3>
+<p>We use our own small, cookie-free statistics script to understand which pages and buttons are useful. It records things like the page visited, the button clicked, the referring website, the country (from your browser's language and time zone), device type and how far you scrolled. It does <b>not</b> use cookies and does <b>not</b> store your name, email or IP address. A random session number is kept in your browser's session storage and a date in local storage so we can count unique daily visits.</p>
+<h3>Information stored on your device</h3>
+<p>Some features (for example saved progress, preferences or awards) are stored only in your own browser using local storage. This information stays on your device and you can clear it at any time from your browser settings.</p>
+
+<h2>2. Advertising and cookies (Google AdSense)</h2>
+<p>This website uses <b>Google AdSense</b> to show advertisements, which helps keep the site free.</p>
+<ul>
+<li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites.</li>
+<li>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet.</li>
+<li>You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>. You can also opt out of some third-party vendors' use of cookies for personalised advertising at <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info</a>.</li>
+<li>To learn more about how Google uses data when you use partner sites, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use its services</a>.</li>
+</ul>
+<p>If you are in the European Economic Area, the United Kingdom or Switzerland, you will be asked for your consent before personalised ads or advertising cookies are used, and you can change your choice at any time.</p>
+
+<h2>3. Embedded content from other websites</h2>
+<p>Some pages include embedded content such as YouTube videos. Embedded content behaves in the same way as if you visited the other website, and that website may collect data about you and use cookies under its own privacy policy. Links to other sites (for example Udemy, Amazon or YouTube) are covered by those sites' own policies.</p>
+
+<h2>4. Affiliate links</h2>
+<p>Some links may be affiliate or referral links. If you buy something through them we may earn a small commission at no extra cost to you. This never changes what we recommend.</p>
+
+<h2>5. How long we keep information</h2>
+<p>Anonymous statistics are kept in detail for up to 90 days and then only as daily totals. Messages and submissions are kept for as long as needed to deal with them. You can ask us to delete anything you sent at any time.</p>
+
+<h2>6. Your rights</h2>
+<p>Depending on where you live (for example under the UK GDPR, EU GDPR or California law) you may have the right to access, correct or delete your personal information, or object to how it is used. Email <a href="mailto:onlinebusinessawareness@gmail.com">onlinebusinessawareness@gmail.com</a> and we will reply within 30 days.</p>
+
+<h2>7. Children</h2>
+<p>This website is not directed at children under 13 and we do not knowingly collect personal information from them. Ads on this site are not personalised based on children's data. If you believe a child has sent us personal information, contact us and we will delete it.</p>
+
+<h2>8. Changes to this policy</h2>
+<p>We may update this policy from time to time. The date at the top shows when it was last changed.</p>
+
+</main>
+
+<footer>
+<span class="foot-brand">
+<img class="foot-mark" src="assets/backpacker-logo.png" alt="Backpacker Directory logo">
+&copy; 2026 Backpacker Directory
+</span>
+<a href="index.html">Home</a>
+<a href="businesses.html">List Your Business</a>
+<a href="agents.html">Become an Agent</a>
+<a href="events.html">Post an Event</a>
+<a href="index.html#deals">Handy Travel Links</a>
+<nav class="legal" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center"><a href="guides.html">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav>
+</footer>
+
+</body>
+</html>
